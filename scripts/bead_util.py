@@ -19,7 +19,7 @@ drive_column = -1
 laser_column = 3
 
 ## get the shape of the chameleon force vs. distance from Maxime's calculation
-cforce = np.loadtxt(r"c:\GitHub\opt_lev\scripts\data\chameleon_force.txt", delimiter=",")
+cforce = np.loadtxt(r"c:\GitHub\opt_lev_controls\scripts\data\chameleon_force.txt", delimiter=",")
 ## fit a spline to the data
 cham_spl = interp.UnivariateSpline( cforce[::5,0], cforce[::5,1], s=0 )
 

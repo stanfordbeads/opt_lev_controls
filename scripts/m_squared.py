@@ -7,7 +7,7 @@ import scipy
 import glob
 from scipy.optimize import curve_fit
 
-data_dir1 = r"C:\Data\20170302_profiling\hsteps_4turns_out"
+data_dir1 = r"C:\Data\20170306_profiling\pos2_nopinhole_fine"
 
 
 
@@ -111,14 +111,16 @@ def proc_dir(dir):
         sigmasqs.append(f.sigmasq)
         hs.append(f.cant_height)
         
-    return file_profs, hs, sigmasqs
+    return file_profs, np.array(hs), np.array(sigmasqs)
  
 def plot_profs(fp_arr):
     #plots average profile from different heigths
     for fp in fp_arr:
-        plt.errorbar(fp.bins, fp.y, fp.errors, label = str(np.round(fp.cant_height)) + 'um')
+        #plt.errorbar(fp.bins, fp.y, fp.errors, label = str(np.round(fp.cant_height)) + 'um')
+        plt.plot(fp.bins, fp.y, 'o', label = str(np.round(fp.cant_height)) + 'um')
     plt.xlabel("position [um]")
     plt.ylabel("margenalized irradiance ~[W/m]")
+    plt.gca().set_yscale('log')
     plt.legend()
     plt.show()
 
@@ -136,9 +138,14 @@ def Szsq(z, s0, M, z0, lam = 1.064):
 
 file_profs, hs, sigmasqs = proc_dir(data_dir1)
 
-p0 = [5., 10., 0.]
 
-popt, pcov = curve_fit(Szsq, hs, sigmasqs, p0=p0)
+plot_profs(file_profs)
+
+p0 = [5., 10., 40.]
+
+bfit = hs < 40.
+
+popt, pcov = curve_fit(Szsq, hs[bfit], sigmasqs[bfit], p0=p0, maxfev=10000)
 
 hplt = np.arange(np.min(hs), np.max(hs), 0.1)
 plt.plot(hs, sigmasqs, 'o')
