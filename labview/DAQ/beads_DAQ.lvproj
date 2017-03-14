@@ -12,10 +12,48 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
+		<Item Name="cFP-1808 @ COM12" Type="FP Serial Controller">
+			<Item Name="cFP-180x @0 Bank" Type="FP Serial Bank">
+				<Property Name="Bound" Type="Bool">false</Property>
+				<Property Name="FPBankAddress" Type="Int">0</Property>
+				<Item Name="cFP-AI-112 @4" Type="FP Device">
+					<Item Name="All" Type="FP Point"/>
+					<Item Name="Channel 0" Type="FP Point"/>
+					<Item Name="Channel 1" Type="FP Point"/>
+					<Item Name="Channel 2" Type="FP Point"/>
+					<Item Name="Channel 3" Type="FP Point"/>
+					<Item Name="Channel 4" Type="FP Point"/>
+					<Item Name="Channel 5" Type="FP Point"/>
+					<Item Name="Channel 6" Type="FP Point"/>
+					<Item Name="Channel 7" Type="FP Point"/>
+					<Item Name="Channel 8" Type="FP Point"/>
+					<Item Name="Channel 9" Type="FP Point"/>
+					<Item Name="Channel 10" Type="FP Point"/>
+					<Item Name="Channel 11" Type="FP Point"/>
+					<Item Name="Channel 12" Type="FP Point"/>
+					<Item Name="Channel 13" Type="FP Point"/>
+					<Item Name="Channel 14" Type="FP Point"/>
+					<Item Name="Channel 15" Type="FP Point"/>
+				</Item>
+				<Item Name="cFP-AO-210 @3" Type="FP Device">
+					<Item Name="All" Type="FP Point"/>
+					<Item Name="Channel 0" Type="FP Point"/>
+					<Item Name="Channel 1" Type="FP Point"/>
+					<Item Name="Channel 2" Type="FP Point"/>
+					<Item Name="Channel 3" Type="FP Point"/>
+					<Item Name="Channel 4" Type="FP Point"/>
+					<Item Name="Channel 5" Type="FP Point"/>
+					<Item Name="Channel 6" Type="FP Point"/>
+					<Item Name="Channel 7" Type="FP Point"/>
+				</Item>
+			</Item>
+		</Item>
 		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
+		<Item Name="nufern_controller.vi" Type="VI" URL="../../LASER/nufern_controller.vi"/>
 		<Item Name="total_valve_control.vi" Type="VI" URL="../../valve_control/total_valve_control.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
+				<Item Name="Agilent 33XXX Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent 33XXX Series/Agilent 33XXX Series.lvlib"/>
 				<Item Name="Agilent E364X Series Output Single Channel DC Volts.vi" Type="VI" URL="/&lt;instrlib&gt;/Agilent E364X Series/Examples/Agilent E364X Series Output Single Channel DC Volts.vi"/>
 				<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent E364X Series/Agilent E364X Series.lvlib"/>
 			</Item>
@@ -239,12 +277,36 @@
 				<Item Name="DWDT Uncompress Digital.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Uncompress Digital.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="Error Code Database.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Code Database.vi"/>
+				<Item Name="ErrorConvert.vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/SubVIs/ErrorConvert.vi"/>
 				<Item Name="ErrWarn.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/ErrWarn.ctl"/>
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="Find First Error.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find First Error.vi"/>
 				<Item Name="Find Tag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find Tag.vi"/>
 				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
+				<Item Name="FP Check Error.vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/SubVIs/FP Check Error.vi"/>
+				<Item Name="FP Close.vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/FP Close.llb/FP Close.vi"/>
+				<Item Name="FP Create Tag.vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/FP Create Tag.vi"/>
+				<Item Name="FP Open.vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/FP Open.vi"/>
+				<Item Name="FP Read (Boolean -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean -IO).vi"/>
+				<Item Name="FP Read (Boolean Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean Array -IO).vi"/>
+				<Item Name="FP Read (Boolean Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean Array).vi"/>
+				<Item Name="FP Read (Boolean).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Boolean).vi"/>
+				<Item Name="FP Read (Float -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float -IO).vi"/>
+				<Item Name="FP Read (Float Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float Array -IO).vi"/>
+				<Item Name="FP Read (Float Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float Array).vi"/>
+				<Item Name="FP Read (Float).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Float).vi"/>
+				<Item Name="FP Read (Polymorphic).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Read.llb/FP Read (Polymorphic).vi"/>
+				<Item Name="FP Write (Boolean -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean -IO).vi"/>
+				<Item Name="FP Write (Boolean Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean Array -IO).vi"/>
+				<Item Name="FP Write (Boolean Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean Array).vi"/>
+				<Item Name="FP Write (Boolean).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Boolean).vi"/>
+				<Item Name="FP Write (Float -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float -IO).vi"/>
+				<Item Name="FP Write (Float Array -IO).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float Array -IO).vi"/>
+				<Item Name="FP Write (Float Array).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float Array).vi"/>
+				<Item Name="FP Write (Float).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Float).vi"/>
+				<Item Name="FP Write (Polymorphic).vi" Type="VI" URL="/&lt;vilib&gt;/FieldPoint/Polymorphic Write.llb/FP Write (Polymorphic).vi"/>
+				<Item Name="FPLVMgr.dll" Type="Document" URL="/&lt;vilib&gt;/FieldPoint/SubVIs/FPLVMgr.dll"/>
 				<Item Name="General Error Handler Core CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler Core CORE.vi"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
 				<Item Name="Get String Text Bounds.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Get String Text Bounds.vi"/>
