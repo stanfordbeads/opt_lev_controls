@@ -7,13 +7,30 @@ import scipy
 import glob
 from scipy.optimize import curve_fit
 
-data_dir1 = r"C:\Data\20170306_profiling\pos2_nopinhole_fine"
 
 
+data_dir2 = r"C:\Data\20170315_profiling\angular_alignment_fine\pos0_0_5mrad_vert_1_5mrad_xtrans_-5_5t_ytrans_1t_postexternalalign"
+
+data_dir1 = r"C:\Data\20170316_profiling\new_fiber_0"
+
+#data_dir2 = r"C:\Data\20160429\beam_profiles1"
+
+multi_dir = True #False
+height_to_plot = 50.
+
+log_profs = True
+
+ROI = [-80, 80] # um
+#OFFSET = 2.*10**(-5)
+OFFSET = 0
+
+msq_fit = True
+gauss_fit = True
 
 #stage x = col 17, stage y = 18, stage z = 19
 stage_column = 19
 data_column = 0
+data_column2 = 0
 cant_cal = 8. #um/volt
 
 
@@ -42,8 +59,17 @@ def profile(fname, ends = 100, stage_cal = 8.):
     h = attribs["stage_settings"][0]*cant_cal
     f.close()
     b, a = sig.butter(1, 1)
-    int_filt = sig.filtfilt(b, a, dat[:, data_column])    
-    proft = np.gradient(int_filt)
+    if '2016' in fname:
+        int_filt = sig.filtfilt(b, a, dat[:, data_column2])
+    else:
+        int_filt = sig.filtfilt(b, a, dat[:, data_column])
+    #plt.plot(int_filt)
+    #fft = np.fft.rfft(int_filt)
+    #freqs = np.fft.rfftfreq(len(int_filt), d=1./5000)
+    #plt.figure()
+    #plt.loglog(freqs, fft * fft.conj())
+    #plt.show()
+    proft = np.gradient(int_filt)- OFFSET
     stage_filt = sig.filtfilt(b, a, dat[:, stage_column])
     dir_sign = np.sign(np.gradient(stage_filt))
     b, y, e = spatial_bin(dat[dir_sign<0, stage_column], proft[dir_sign<0])
@@ -60,6 +86,7 @@ class File_prof:
         self.cant_height = h
         self.mean = "mean not computed"
         self.sigmasq = "std dev not computed"
+        self.date = "date not entered"
         
     def dist_mean(self):
         #Finds the cnetroid of intensity distribution. subtracts centroid from bins
@@ -71,8 +98,13 @@ class File_prof:
         #finds second moment of intensity distribution.
         if type(self.mean) == str:
             self.dist_mean()
-        norm = np.sum(self.y*self.dxs)
-        self.sigmasq = np.sum(self.bins**2*self.y)/norm
+        derp1 = self.bins > ROI[0]
+        derp2 = self.bins < ROI[1]
+        ROIbool = np.array([a and b for a, b in zip(derp1, derp2)])
+        norm = np.sum(self.y[ROIbool]*self.dxs[ROIbool])
+        #norm = np.sum(self.y*self.dxs)
+        self.sigmasq = np.sum(self.bins[ROIbool]**2*self.y[ROIbool])/norm
+        #self.sigmasq = np.sum(self.bins**2*self.y)/norm
          
 
 def proc_dir(dir):
@@ -86,6 +118,7 @@ def proc_dir(dir):
             #if new height then create new profile object
             hs.append(h)
             f = File_prof(b, y, e, h)
+            f.date = dir[8:16]
             file_profs.append(f)
         else:
             #if height repeated then append data to object for that height
@@ -114,13 +147,22 @@ def proc_dir(dir):
     return file_profs, np.array(hs), np.array(sigmasqs)
  
 def plot_profs(fp_arr):
-    #plots average profile from different heigths
+    #plots average profile from different heights
     for fp in fp_arr:
         #plt.errorbar(fp.bins, fp.y, fp.errors, label = str(np.round(fp.cant_height)) + 'um')
-        plt.plot(fp.bins, fp.y, 'o', label = str(np.round(fp.cant_height)) + 'um')
+        #lab = str(np.round(fp.cant_height)) + 'um'
+        lab = fp.date
+        if multi_dir:
+            plt.plot(fp.bins, fp.y / np.amax(fp.y), 'o', label = lab)
+            plt.ylim(10**(-5), 10)
+        else:
+            plt.plot(fp.bins, fp.y, 'o', label = lab)
     plt.xlabel("position [um]")
     plt.ylabel("margenalized irradiance ~[W/m]")
-    plt.gca().set_yscale('log')
+    if log_profs:
+        plt.gca().set_yscale('log')
+    else:
+        plt.gca().set_yscale('linear')
     plt.legend()
     plt.show()
 
@@ -138,22 +180,75 @@ def Szsq(z, s0, M, z0, lam = 1.064):
 
 file_profs, hs, sigmasqs = proc_dir(data_dir1)
 
+if multi_dir:
+    fp2, hs2, sigsq2 = proc_dir(data_dir2)
+    ind = np.argmin(np.abs(hs - height_to_plot))
+    ind2 = np.argmin(np.abs(hs2 - height_to_plot))
+    plot_profs([file_profs[ind]] + [fp2[ind2]])
 
-plot_profs(file_profs)
+else:
+    plot_profs(file_profs)
 
-p0 = [5., 10., 40.]
+if msq_fit:
 
-bfit = hs < 40.
+    p0 = [5., 10., 40.]
 
-popt, pcov = curve_fit(Szsq, hs[bfit], sigmasqs[bfit], p0=p0, maxfev=10000)
+    bfit = hs < 140.
 
-hplt = np.arange(np.min(hs), np.max(hs), 0.1)
-plt.plot(hs, sigmasqs, 'o')
-plt.plot(hplt, Szsq(hplt, *popt), 'r',linewidth = 2,  label = "M^2=" + str(int(popt[1]**2)))
-plt.xlabel("Cantilever height [um]")
-plt.ylabel("second moment of intensity distribution [um^2]")
-plt.legend()
-plt.show()
+    popt, pcov = curve_fit(Szsq, hs[bfit], sigmasqs[bfit], p0=p0, maxfev=10000)
+
+    hplt = np.arange(np.min(hs), np.max(hs), 0.1)
+    plt.plot(hs, sigmasqs, 'o')
+    plt.plot(hplt, Szsq(hplt, *popt), 'r',linewidth = 2,  label = "M^2=%0.3g"%popt[1]**2)
+    plt.title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt[-1],popt[0]))
+    plt.xlabel("Cantilever height [um]")
+    plt.ylabel("second moment of intensity distribution [um^2]")
+    plt.legend(loc=0)
+    plt.show()
+
+
+if gauss_fit:
+
+    def gauss_wconst(x, A, x0, w0, C):
+        return A * np.exp( -2 * (x-x0)**2 / (w0**2) ) + C
+        
+    def gauss(x, A, x0, w0):
+        return A * np.exp( -2 * (x-x0)**2 / (w0**2) )
+    
+    if msq_fit:
+        bestfit = np.argmin(np.abs(np.array(hs) - popt[-1]))
+    else:
+        bestfit = 0
+    
+    lab = hs[bestfit]
+    bestprof = file_profs[bestfit]
+
+    #p02 = [10**(-3), 0, 10, 10**(-7)]
+    #popt2, pcov2 = curve_fit(gauss_wconst, bestprof.bins, bestprof.y, p0=p02)
+
+    p02 = [10**(-3), 0, 10]    
+    popt2, pcov2 = curve_fit(gauss, bestprof.bins, bestprof.y, p0=p02)
+
+    fitpts = np.arange(np.min(bestprof.bins), np.max(bestprof.bins), 0.1)
+    plt.plot(bestprof.bins, bestprof.y, 'o')
+    
+    #plt.plot(fitpts, gauss_wconst(fitpts, *popt2), 'r', linewidth = 2, label='h = %0.2g' % lab)
+    plt.plot(fitpts, gauss(fitpts, *popt2), 'r', linewidth = 2, label='h = %0.2g' % lab)
+
+    data_int = np.sum(bestprof.y) * (bestprof.bins[1] - bestprof.bins[0])
+    gauss_int = np.sum(gauss(fitpts, *popt2)) * (fitpts[1] - fitpts[0])
+
+    print 
+    print "Non-Gaussian Part: ", (data_int - gauss_int) / data_int
+    
+    plt.title('Gaussian Fit Waist = %0.2g um' % (np.abs(popt2[2])) )
+    plt.xlabel("Cantilever Position [um]")
+    plt.ylabel("Intensity Profile [arbitrary]")
+    plt.ylim(10**(-6), popt2[0] * 10)
+    plt.gca().set_yscale('log')
+    plt.legend(loc=0)
+    plt.show()
+
 
 
 
