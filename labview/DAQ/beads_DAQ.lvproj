@@ -12,7 +12,7 @@
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
-		<Item Name="cFP-1808 @ COM12" Type="FP Serial Controller">
+		<Item Name="cFP-1808" Type="FP Serial Controller">
 			<Item Name="cFP-180x @0 Bank" Type="FP Serial Bank">
 				<Property Name="Bound" Type="Bool">false</Property>
 				<Property Name="FPBankAddress" Type="Int">0</Property>

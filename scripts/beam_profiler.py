@@ -7,14 +7,14 @@ import scipy
 import glob
 
 
-data_dir1 = r"C:\Data\20170302_profiling\test_no_amp_down"
-data_dir2 = r"C:\Data\20170302_profiling\test_no_amp_down3"
+data_dir1 = r"C:\Data\20170519\beam_profiling\zsweep"
+data_dir2 = r"C:\Data\20170519\beam_profiling\zsweep"
 
 
 
 #stage x = col 17, stage y = 18, stage z = 19
 stage_column = 19
-data_column = 0
+data_column = 3
 
 
 def spatial_bin(xvec, yvec, bin_size = .13):
