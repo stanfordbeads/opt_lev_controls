@@ -9,9 +9,9 @@ from scipy.optimize import curve_fit
 
 
 
-data_dir2 = r"C:\Data\20170315_profiling\angular_alignment_fine\pos0_0_5mrad_vert_1_5mrad_xtrans_-5_5t_ytrans_1t_postexternalalign"
+data_dir2 = r"C:\Data\20170523\beam_profiling\zsweep_init"
 
-data_dir1 = r"C:\Data\20170316_profiling\new_fiber_0"
+data_dir1 = r"C:\Data\20170523\beam_profiling\zsweep_init"
 
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
@@ -29,7 +29,8 @@ gauss_fit = True
 
 #stage x = col 17, stage y = 18, stage z = 19
 stage_column = 19
-data_column = 0
+stage_column2 = 18
+data_column = 3
 data_column2 = 0
 cant_cal = 8. #um/volt
 
@@ -55,7 +56,11 @@ def profile(fname, ends = 100, stage_cal = 8.):
     dat = dat[ends:-ends, :]
     #plt.plot(dat[:, data_column])
     #plt.show()
-    dat[:, stage_column]*=stage_cal
+    if 'zsweep' in fname:
+        stage_column = 19
+    elif 'ysweep' in fname:
+        stage_column = 18
+    dat[:,stage_column]*=stage_cal
     h = attribs["stage_settings"][0]*cant_cal
     f.close()
     b, a = sig.butter(1, 1)
@@ -70,7 +75,12 @@ def profile(fname, ends = 100, stage_cal = 8.):
     #plt.loglog(freqs, fft * fft.conj())
     #plt.show()
     proft = np.gradient(int_filt)- OFFSET
-    stage_filt = sig.filtfilt(b, a, dat[:, stage_column])
+    if 'zsweep' in fname:
+        stage_filt = sig.filtfilt(b, a, dat[:, 19])
+        #stage_column = 19
+    elif 'ysweep' in fname:
+        stage_filt = sig.filtfilt(b, a, dat[:, 18])
+        #stage_column = 18
     dir_sign = np.sign(np.gradient(stage_filt))
     b, y, e = spatial_bin(dat[dir_sign<0, stage_column], proft[dir_sign<0])
     return b, y, e, h
@@ -148,10 +158,12 @@ def proc_dir(dir):
  
 def plot_profs(fp_arr):
     #plots average profile from different heights
+    i = 1
     for fp in fp_arr:
         #plt.errorbar(fp.bins, fp.y, fp.errors, label = str(np.round(fp.cant_height)) + 'um')
         #lab = str(np.round(fp.cant_height)) + 'um'
-        lab = fp.date
+        lab = 'dir' + str(i)
+        i += 1
         if multi_dir:
             plt.plot(fp.bins, fp.y / np.amax(fp.y), 'o', label = lab)
             plt.ylim(10**(-5), 10)
