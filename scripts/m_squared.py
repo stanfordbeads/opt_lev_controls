@@ -9,14 +9,14 @@ from scipy.optimize import curve_fit
 
 
 
-data_dir2 = r"C:\Data\20170523\beam_profiling\zsweep_init"
+data_dir2 = r"C:\Data\20170525\beam_profiling\zsweep_1_0_turn_up_1_5_turn_left"
 
-data_dir1 = r"C:\Data\20170523\beam_profiling\zsweep_init"
+data_dir1 = r"C:\Data\20170525\beam_profiling\ysweep_1_0_turn_up_1_5_turn_left"
 
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
 multi_dir = True #False
-height_to_plot = 50.
+height_to_plot = 30.
 
 log_profs = True
 
