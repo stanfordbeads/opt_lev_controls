@@ -7,14 +7,15 @@ import numpy as np
 import bead_util as bu
 
 
-refname = r"2_0mbar_zcool.h5"
+refname = r"z_int_stageX6250nmY10000nmZ10000nm.h5"
 fname0 = r""
-path = r"C:\Data\20170525\bead1"
+path = r"C:\Data\20170601\bead1"
 d2plt = 1
 conv_fac = 6.4e-14
 
 plot_second_xy = False
 plot_pow = False
+plot_drive = True
 
 if fname0 == "":
 	filelist = os.listdir(path)
@@ -53,12 +54,12 @@ def getdata(fname):
 	else:
 		dat = numpy.loadtxt(fname, skiprows = 5, usecols = [2, 3, 4, 5, 6] )
 
-	xpsd, freqs = matplotlib.mlab.psd(dat[:, 0]-np.mean(dat[:, 0]), Fs = Fs, NFFT = NFFT) 
-	ypsd, freqs = matplotlib.mlab.psd(dat[:, 1]-np.mean(dat[:, 1]), Fs = Fs, NFFT = NFFT)
-        zpsd, freqs = matplotlib.mlab.psd(dat[:, 2]-np.mean(dat[:, 2]), Fs = Fs, NFFT = NFFT)
-        powpsd, freqs = matplotlib.mlab.psd(dat[:, 3]-np.mean(dat[:, 3]), Fs = Fs, NFFT = NFFT)
-        xpsd2, freqs = matplotlib.mlab.psd(dat[:, 4]-np.mean(dat[:, 4]), Fs = Fs, NFFT = NFFT) 
-        ypsd2, freqs = matplotlib.mlab.psd(dat[:, 5]-np.mean(dat[:, 5]), Fs = Fs, NFFT = NFFT) 
+	xpsd, freqs = matplotlib.mlab.psd(dat[:, 0]-np.mean(dat[:, 0]), Fs = Fs, NFFT = NFFT, detrend = 'linear') 
+	ypsd, freqs = matplotlib.mlab.psd(dat[:, 1]-np.mean(dat[:, 1]), Fs = Fs, NFFT = NFFT, detrend = 'linear')
+        zpsd, freqs = matplotlib.mlab.psd(dat[:, 2]-np.mean(dat[:, 2]), Fs = Fs, NFFT = NFFT, detrend = 'linear')
+        powpsd, freqs = matplotlib.mlab.psd(dat[:, 3]-np.mean(dat[:, 3]), Fs = Fs, NFFT = NFFT, detrend = 'linear')
+        xpsd2, freqs = matplotlib.mlab.psd(dat[:, 4]-np.mean(dat[:, 4]), Fs = Fs, NFFT = NFFT, detrend = 'linear') 
+        ypsd2, freqs = matplotlib.mlab.psd(dat[:, 5]-np.mean(dat[:, 5]), Fs = Fs, NFFT = NFFT, detrend = 'linear') 
 
 	norm = numpy.median(dat[:, 2])
         #for h in [xpsd, ypsd, zpsd]:
@@ -89,21 +90,34 @@ def rotate(vec1, vec2, theta):
 Fs = 10000
 b, a = sp.butter(1, [2*5./Fs, 2*10./Fs], btype = 'bandpass')
 
+
+if plot_drive:
+
+        fig = plt.figure()
+        plt.subplot(311)
+        plt.plot(data0[3][:,17])
+        plt.subplot(312)
+        plt.plot(data0[3][:,18])
+        plt.subplot(313)
+        plt.plot(data0[3][:,19])
+        plt.show()
+
+
 if d2plt:	
 
         fig = plt.figure()
-        plt.plot(data0[3][:, 0] - np.mean(data0[3][:, 0]) )
+        plt.plot(data0[3][:, 2] - np.mean(data0[3][:, 2]) )
         #plt.plot(data0[3][:, 1])
-        plt.plot(data0[3][:, 1] - np.mean(data0[3][:, 1]) )
+        plt.plot(data1[3][:, 2] - np.mean(data1[3][:, 2]) )
        # plt.plot(np.abs(data0[3][:, 3])-np.mean(np.abs(data0[3][:, 3])))
        
 
-r, bp, pcov = bu.get_calibration(os.path.join(path, refname), [1, 1000], make_plot = True)
+#r, bp, pcov = bu.get_calibration(os.path.join(path, refname), [1, 1000], make_plot = True)
 
-k = (bp[1]*2.*np.pi)**2*bu.bead_mass
-fu = r*k
+#k = (bp[1]*2.*np.pi)**2*bu.bead_mass
+#fu = r*k
 
-print fu
+#print fu
 
 fu = conv_fac
 
