@@ -7,15 +7,22 @@ import numpy as np
 import bead_util as bu
 
 
-refname = r"z_int_stageX6250nmY10000nmZ10000nm.h5"
+refname = r"turbobase_xyzcool_0.h5"
+reflab = ""
+
 fname0 = r""
-path = r"C:\Data\20170601\bead1"
-d2plt = 1
+fillab = ""
+
+path = r"C:\Data\20170623\bead9\tf_20170623\freq_comb_elec1_1-200Hz_10Vpp"
+d2plt = 0
 conv_fac = 6.4e-14
+
+Fs = 5e3  ## this is ignored with HDF5 files
+NFFT = 2**12
 
 plot_second_xy = False
 plot_pow = False
-plot_drive = True
+plot_drive = False
 
 if fname0 == "":
 	filelist = os.listdir(path)
@@ -32,9 +39,6 @@ if fname0 == "":
 
 
 		 
-
-Fs = 5e3  ## this is ignored with HDF5 files
-NFFT = 2**12
 
 def getdata(fname):
 	print "Opening file: ", fname
@@ -108,7 +112,8 @@ if d2plt:
         fig = plt.figure()
         plt.plot(data0[3][:, 2] - np.mean(data0[3][:, 2]) )
         #plt.plot(data0[3][:, 1])
-        plt.plot(data1[3][:, 2] - np.mean(data1[3][:, 2]) )
+        if refname:
+                plt.plot(data1[3][:, 2] - np.mean(data1[3][:, 2]) )
        # plt.plot(np.abs(data0[3][:, 3])-np.mean(np.abs(data0[3][:, 3])))
        
 
@@ -122,28 +127,39 @@ if d2plt:
 fu = conv_fac
 
 meanpow0 = np.mean(data0[3][:,4])
-meanpow1 = np.mean(data1[3][:,4])
+if refname:
+        meanpow1 = np.mean(data1[3][:,4])
 
 fig, axarr = plt.subplots(3, sharex=True)
 
-axarr[0].loglog(data0[0], np.sqrt(data0[1]), label="file", color='b')
+if not fillab:
+        fillab = 'file'
+        
+if not reflab:
+        reflab = 'ref'
+
+axarr[0].loglog(data0[0], np.sqrt(data0[1]), label=fillab, color='b')
 if plot_second_xy:
-        axarr[0].loglog(data0[0], np.sqrt(data0[6]), label="file 2", color='r')
+        axarr[0].loglog(data0[0], np.sqrt(data0[6]), label=fillab+' 2', color='r')
 if refname:
-        axarr[0].loglog(data1[0], np.sqrt(data1[1]), label="ref", color='g')
-        axarr[0].legend()
+        axarr[0].loglog(data1[0], np.sqrt(data1[1]), label=reflab, color='g')
+        if plot_second_xy:
+                axarr[0].loglog(data1[0], np.sqrt(data1[6]), label=reflab+' 2', color='m')
+        axarr[0].legend(loc=3,fontsize=10)
 axarr[0].set_ylabel("V/rt(Hz)")
 axarr[0].set_xlabel("Frequency[Hz]")
-plt.legend(loc=3)
 
 axarr[1].loglog(data0[0], np.sqrt(data0[2]), color='b')
 if plot_second_xy:
         axarr[1].loglog(data0[0], np.sqrt(data0[7]), color='r')
 if refname:
         axarr[1].loglog(data1[0], np.sqrt(data1[2]), color='g')
+        if plot_second_xy:
+                axarr[1].loglog(data1[0], np.sqrt(data1[7]), color='m')
 axarr[1].set_ylabel("V/rt(Hz)")
 axarr[1].set_xlabel("Frequency[Hz]")
-     
+
+
 axarr[2].loglog(data0[0],  np.sqrt(data0[4]), color='b')
 if refname:
         axarr[2].loglog(data1[0], np.sqrt(data1[4]), color='g')

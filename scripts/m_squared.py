@@ -8,15 +8,14 @@ import glob
 from scipy.optimize import curve_fit
 
 
+data_dir1 = r"C:\Data\20170620\beam_profiling\ysweep_transcenter"
 
-data_dir2 = r"C:\Data\20170525\beam_profiling\zsweep_1_0_turn_up_1_5_turn_left"
-
-data_dir1 = r"C:\Data\20170525\beam_profiling\ysweep_1_0_turn_up_1_5_turn_left"
+data_dir2 = r"C:\Data\20170620\beam_profiling\zsweep_transcenter"
 
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
-multi_dir = True #False
-height_to_plot = 30.
+multi_dir = True
+height_to_plot = 0.
 
 log_profs = True
 
@@ -30,8 +29,10 @@ gauss_fit = True
 #stage x = col 17, stage y = 18, stage z = 19
 stage_column = 19
 stage_column2 = 18
-data_column = 3
-data_column2 = 0
+
+data_column = 4
+data_column2 = 0  # For data circa 2016
+
 cant_cal = 8. #um/volt
 
 
@@ -161,11 +162,13 @@ def plot_profs(fp_arr):
     i = 1
     for fp in fp_arr:
         #plt.errorbar(fp.bins, fp.y, fp.errors, label = str(np.round(fp.cant_height)) + 'um')
-        #lab = str(np.round(fp.cant_height)) + 'um'
-        lab = 'dir' + str(i)
+        if multi_dir:
+            lab = 'dir' + str(i)
+        else:
+            lab = str(np.round(fp.cant_height)) + 'um'
         i += 1
         if multi_dir:
-            plt.plot(fp.bins, fp.y / np.amax(fp.y), 'o', label = lab)
+            plt.plot(fp.bins, fp.y / np.max(fp.y), 'o', label = lab)
             plt.ylim(10**(-5), 10)
         else:
             plt.plot(fp.bins, fp.y, 'o', label = lab)
@@ -208,18 +211,54 @@ if msq_fit:
     bfit = hs < 140.
 
     popt, pcov = curve_fit(Szsq, hs[bfit], sigmasqs[bfit], p0=p0, maxfev=10000)
-
     hplt = np.arange(np.min(hs), np.max(hs), 0.1)
-    plt.plot(hs, sigmasqs, 'o')
-    plt.plot(hplt, Szsq(hplt, *popt), 'r',linewidth = 2,  label = "M^2=%0.3g"%popt[1]**2)
-    plt.title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt[-1],popt[0]))
-    plt.xlabel("Cantilever height [um]")
-    plt.ylabel("second moment of intensity distribution [um^2]")
-    plt.legend(loc=0)
+    
+    if multi_dir:
+        bfit2 = hs2 < 140.
+        popt2, pcov2 = curve_fit(Szsq, hs2[bfit2], sigsq2[bfit2], p0=p0, maxfev=10000)
+        hplt2 = np.arange(np.min(hs2), np.max(hs2), 0.1)
+        
+        fig, axarr = plt.subplots(2, sharex=True, sharey=True)
+        ax1 = axarr[0]
+        ax2 = axarr[1]
+
+    else:
+        fig, axarr = plt.subplots(1, sharex=True)
+        ax1 = axarr
+
+        
+    if multi_dir:    
+        maxsig = np.max([np.max(sigmasqs), np.max(sigsq2)])
+    else:
+        maxsig = np.max(sigmasqs)
+    
+    ax1.plot(hs, sigmasqs, 'o')
+    ax1.plot(hplt, Szsq(hplt, *popt), 'r',linewidth = 2,  label = "M^2=%0.3g"%popt[1]**2)
+    ax1.set_title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt[-1],popt[0]))
+    ax1.set_ylabel("second moment [um^2]")
+    ax1.set_ylim(0, maxsig*1.2)
+    ax1.legend(loc=0)
+
+    if multi_dir:
+        ax2.plot(hs2, sigsq2, 'o')
+        ax2.plot(hplt2, Szsq(hplt2, *popt2), 'r',linewidth = 2,  label = "M^2=%0.3g"%popt2[1]**2)
+        ax2.set_title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt2[-1],popt2[0]))
+        ax2.set_ylabel("Second moment [um^2]")
+        ax2.set_xlabel("Cantilever height [um]")
+        ax2.set_ylim(0, maxsig*1.2)
+        ax2.legend(loc=0)
     plt.show()
 
 
 if gauss_fit:
+
+    if multi_dir:
+        f2, axarr2 = plt.subplots(2, sharex=True, sharey=True)
+        ax1 = axarr2[0]
+        ax2 = axarr2[1]
+    else:
+        f2, axarr2 = plt.subplots(1, sharex=True)
+        ax1 = axarr2
 
     def gauss_wconst(x, A, x0, w0, C):
         return A * np.exp( -2 * (x-x0)**2 / (w0**2) ) + C
@@ -229,36 +268,62 @@ if gauss_fit:
     
     if msq_fit:
         bestfit = np.argmin(np.abs(np.array(hs) - popt[-1]))
+        if multi_dir:
+            bestfit2 = np.argmin(np.abs(np.array(hs2) - popt2[-1]))
     else:
         bestfit = 0
+        if multi_dir:
+            bestfit2 = 0
     
     lab = hs[bestfit]
+    if multi_dir:
+        lab2 = hs2[bestfit2]
+                        
     bestprof = file_profs[bestfit]
+    if multi_dir:
+        bestprof2 = fp2[bestfit2]
 
     #p02 = [10**(-3), 0, 10, 10**(-7)]
     #popt2, pcov2 = curve_fit(gauss_wconst, bestprof.bins, bestprof.y, p0=p02)
 
     p02 = [10**(-3), 0, 10]    
-    popt2, pcov2 = curve_fit(gauss, bestprof.bins, bestprof.y, p0=p02)
-
+    popt3, pcov3 = curve_fit(gauss, bestprof.bins, bestprof.y, p0=p02)
     fitpts = np.arange(np.min(bestprof.bins), np.max(bestprof.bins), 0.1)
-    plt.plot(bestprof.bins, bestprof.y, 'o')
     
-    #plt.plot(fitpts, gauss_wconst(fitpts, *popt2), 'r', linewidth = 2, label='h = %0.2g' % lab)
-    plt.plot(fitpts, gauss(fitpts, *popt2), 'r', linewidth = 2, label='h = %0.2g' % lab)
+    if multi_dir:
+        popt4, pcov4 = curve_fit(gauss, bestprof2.bins, bestprof2.y, p0=p02)
+        fitpts2 = np.arange(np.min(bestprof2.bins), np.max(bestprof2.bins), 0.1)
+
+        
+    ax1.plot(bestprof.bins, bestprof.y, 'o')
+    ax1.plot(fitpts, gauss(fitpts, *popt3), 'r', linewidth = 2, label='h = %0.2g' % lab)
 
     data_int = np.sum(bestprof.y) * (bestprof.bins[1] - bestprof.bins[0])
-    gauss_int = np.sum(gauss(fitpts, *popt2)) * (fitpts[1] - fitpts[0])
+    gauss_int = np.sum(gauss(fitpts, *popt3)) * (fitpts[1] - fitpts[0])
 
     print 
-    print "Non-Gaussian Part: ", (data_int - gauss_int) / data_int
+    print "Non-Gaussian Part (1): ", (data_int - gauss_int) / data_int
+
+    ax1.set_title('Gaussian Fit Waist = %0.2g um' % (np.abs(popt3[2])) )
+    ax1.set_ylabel("Intensity Profile [arbitrary]")
+    ax1.set_ylim(10**(-6), popt3[0] * 10)
+    ax1.set_yscale('log')
+    ax1.legend(loc=0)
     
-    plt.title('Gaussian Fit Waist = %0.2g um' % (np.abs(popt2[2])) )
-    plt.xlabel("Cantilever Position [um]")
-    plt.ylabel("Intensity Profile [arbitrary]")
-    plt.ylim(10**(-6), popt2[0] * 10)
-    plt.gca().set_yscale('log')
-    plt.legend(loc=0)
+    if multi_dir:
+        ax2.plot(bestprof2.bins, bestprof2.y, 'o')
+        ax2.plot(fitpts2, gauss(fitpts2, *popt4), 'r', linewidth = 2, label='h = %0.2g' % lab)
+    
+        data_int2 = np.sum(bestprof2.y) * (bestprof2.bins[1] - bestprof2.bins[0])
+        gauss_int2 = np.sum(gauss(fitpts2, *popt4)) * (fitpts2[1] - fitpts2[0])
+        print "Non-Gaussian Part (2): ", (data_int2 - gauss_int2) / data_int2
+
+        ax2.set_title('Gaussian Fit Waist = %0.2g um' % (np.abs(popt4[2])) )
+        ax2.set_xlabel("Cantilever Position [um]")
+        ax2.set_ylabel("Intensity Profile [arbitrary]")
+        ax2.set_ylim(10**(-6), popt4[0] * 10)
+        ax2.set_yscale('log')
+    
     plt.show()
 
 

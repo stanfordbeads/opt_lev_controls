@@ -10,20 +10,21 @@ import scipy.signal as sp
 import scipy.optimize as opt
 import cPickle as pickle
 
-path = r"C:\Data\20160418\bead2\recharge_cant"
+path = r"C:\Data\20170623\bead9\discharge1"
 ts = 1.
 
 fdrive = 41.
 make_plot = True
 
 data_columns = [0, 1] ## column to calculate the correlation against
+col = 0
 drive_column = 12 ##-1 ## column containing drive signal
 
 def getphase(fname):
         print "Getting phase from: ", fname 
         dat, attribs, cf = bu.getdata(os.path.join(path, fname))
         fsamp = attribs["Fsamp"]
-        xdat = dat[:,data_columns[1]]
+        xdat = dat[:,data_columns[col]]
 
         xdat = np.append(xdat, np.zeros( int(fsamp/fdrive) ))
         corr2 = np.correlate(xdat,dat[:,drive_column])
@@ -43,7 +44,7 @@ def getdata(fname, maxv):
         if( len(attribs) > 0 ):
             fsamp = attribs["Fsamp"]
 
-        xdat = dat[:,data_columns[1]]
+        xdat = dat[:,data_columns[col]]
 
         lentrace = len(xdat)
         ## zero pad one cycle

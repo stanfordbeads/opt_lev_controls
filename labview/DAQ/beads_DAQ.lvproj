@@ -11,8 +11,9 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
+		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
-		<Item Name="cFP-1808 @ COM12" Type="FP Serial Controller">
+		<Item Name="cFP-1808" Type="FP Serial Controller">
 			<Item Name="cFP-180x @0 Bank" Type="FP Serial Bank">
 				<Property Name="Bound" Type="Bool">false</Property>
 				<Property Name="FPBankAddress" Type="Int">0</Property>
@@ -381,6 +382,7 @@
 			<Item Name="gate_valve1.vi" Type="VI" URL="../../valve_control/gate_valve1.vi"/>
 			<Item Name="gate_valve_combo.vi" Type="VI" URL="../../valve_control/gate_valve_combo.vi"/>
 			<Item Name="Get Full Terminal Name.vi" Type="VI" URL="../../Get Full Terminal Name.vi"/>
+			<Item Name="HP 3325A Function Gen.vi" Type="VI" URL="../../HP 3325A Function Gen.vi"/>
 			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="make_dc_array (SubVI).vi" Type="VI" URL="../make_dc_array (SubVI).vi"/>
