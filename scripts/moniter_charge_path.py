@@ -10,14 +10,14 @@ import scipy.signal as sp
 import scipy.optimize as opt
 import cPickle as pickle
 
-path = r"C:\Data\20160307\bead7\chargelp_cal"
+path = r"C:\Data\20170629\discharge_fine"
 ts = 100.
 
 fdrive = 41.
 make_plot = True
 reprocess_file = True
 
-data_columns = [0, 1] ## column to calculate the correlation against
+data_columns = [0, 0] ## column to calculate the correlation against
 drive_column = 12 ## column containing drive signal
 
 

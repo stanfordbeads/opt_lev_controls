@@ -1,0 +1,34 @@
+Checklist for Leaving:
+
+
+ALWAYS CHECK
+
+1) Hot-plate and oven
+
+2) Roughing line pressure
+
+3) Mako off to prevent computer crashes
+
+4) Piezo dropper HV/RF amp off
+
+
+
+WITH BEAD IN TRAP
+
+1) Check laser state
+
+2) Check valve state
+
+3) Turn electrodes to 0 V
+
+4) Pull cantilever all the way back (z = 0 um)
+
+
+
+WITHOUT BEAD IN TRAP
+
+1) Lasers off (?)
+
+2) Leave chamber pumping, but turbo off
+
+3) Cantilever back, bead dropper back

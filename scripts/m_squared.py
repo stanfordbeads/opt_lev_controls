@@ -8,13 +8,13 @@ import glob
 from scipy.optimize import curve_fit
 
 
-data_dir1 = r"C:\Data\20170620\beam_profiling\ysweep_transcenter"
+data_dir1 = r"C:\Data\20170727\beam_alignment\pos1"
+data_dir2 = r"C:\Data\20170727\beam_alignment\pos2"
 
-data_dir2 = r"C:\Data\20170620\beam_profiling\zsweep_transcenter"
-
+#out_dir = r"C:\Data\20170704\profiling\output"
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
-multi_dir = True
+multi_dir = True #False
 height_to_plot = 0.
 
 log_profs = True
@@ -23,15 +23,15 @@ ROI = [-80, 80] # um
 #OFFSET = 2.*10**(-5)
 OFFSET = 0
 
-msq_fit = True
+msq_fit = True #False
 gauss_fit = True
 
 #stage x = col 17, stage y = 18, stage z = 19
 stage_column = 19
-stage_column2 = 18
+stage_column2 = 19
 
-data_column = 4
-data_column2 = 0  # For data circa 2016
+data_column = 5
+data_column2 = 5  # 0 For data circa 2016
 
 cant_cal = 8. #um/volt
 
@@ -61,6 +61,8 @@ def profile(fname, ends = 100, stage_cal = 8.):
         stage_column = 19
     elif 'ysweep' in fname:
         stage_column = 18
+    else:
+        stage_column = 19
     dat[:,stage_column]*=stage_cal
     h = attribs["stage_settings"][0]*cant_cal
     f.close()
@@ -78,10 +80,10 @@ def profile(fname, ends = 100, stage_cal = 8.):
     proft = np.gradient(int_filt)- OFFSET
     if 'zsweep' in fname:
         stage_filt = sig.filtfilt(b, a, dat[:, 19])
-        #stage_column = 19
     elif 'ysweep' in fname:
         stage_filt = sig.filtfilt(b, a, dat[:, 18])
-        #stage_column = 18
+    else:
+        stage_filt = sig.filtfilt(b, a, dat[:, 19])
     dir_sign = np.sign(np.gradient(stage_filt))
     b, y, e = spatial_bin(dat[dir_sign<0, stage_column], proft[dir_sign<0])
     return b, y, e, h

@@ -11,10 +11,10 @@ import matplotlib.pyplot as plt
 Fsamp = 5000.
 cutsamp = 2000
 Npoints = 250000
-drive_elec = 5
+drive_elec = 1
 drive_voltage = 1
 
-scaled_amp = 10.0  # max voltage played by DAC
+scaled_amp = 3.0  # max voltage played by DAC
 
 filname = r'C:\GitHub\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_optphase2_higherf.txt' % (drive_elec, scaled_amp)
 
@@ -27,8 +27,8 @@ drive_freqs = np.linspace(1, 600, 100)
 #np.random.seed(123)
 np.random.seed()
 random_phase = True
-optimize_phase = True
-load_opt_phase = False
+optimize_phase = False #True
+load_opt_phase = True #False
 
 passes = 1000
 
@@ -85,7 +85,7 @@ if optimize_phase and not load_opt_phase:
 
 
 elif load_opt_phase:
-    data = np.loadtxt("opt_phases_2017.txt")
+    data = np.loadtxt("opt_phases_1-600Hz.txt")
     freqs = data[:,0]
     phases = data[:,1]
     for i in range(len(freqs)):

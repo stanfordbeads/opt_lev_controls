@@ -7,18 +7,18 @@ import numpy as np
 import bead_util as bu
 
 
-refname = r"turbobase_xyzcool_0.h5"
+refname = r"1_5mbar_nocool.h5"
 reflab = ""
 
 fname0 = r""
 fillab = ""
 
-path = r"C:\Data\20170623\bead9\tf_20170623\freq_comb_elec1_1-200Hz_10Vpp"
+path = r"C:\Data\20170720\bead3"
 d2plt = 0
 conv_fac = 6.4e-14
 
 Fs = 5e3  ## this is ignored with HDF5 files
-NFFT = 2**12
+NFFT = 2**14
 
 plot_second_xy = False
 plot_pow = False

@@ -1,0 +1,21 @@
+If the bead falls out:
+
+1) Take "chameleon" data without bead
+
+2) Take gravity data without bead
+    a) Just y-drive
+    b) with z-drive to "straighten"
+
+3) Take dipole data without bead
+
+4) Measure noise with feedback still on
+
+5) Determine cantilever distance to trap
+
+6) Profile Beam
+
+7) Take "chameleon" data far away for vibration test
+
+8) Use CC to determine turbo base pressure
+
+9) RGA Scan? Leak Test?

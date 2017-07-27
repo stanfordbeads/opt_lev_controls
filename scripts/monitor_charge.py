@@ -10,8 +10,8 @@ import scipy.signal as sp
 import scipy.optimize as opt
 import cPickle as pickle
 
-path = r"C:\Data\20170623\bead9\discharge1"
-ts = 1.
+path = r"C:\Data\20170718\bead2\recharge"
+ts = 10.
 
 fdrive = 41.
 make_plot = True
@@ -65,6 +65,7 @@ def get_most_recent_file(p):
     #filelist = [filelist[0]]
     mtime = 0
     mrf = ""
+    #print filelist
     for fin in filelist:
         if( fin[-3:] != ".h5" ):
             continue
