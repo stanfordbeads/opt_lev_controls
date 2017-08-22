@@ -10,15 +10,15 @@ import scipy.signal as sp
 import scipy.optimize as opt
 import cPickle as pickle
 
-path = r"C:\Data\20170629\discharge_fine"
-ts = 100.
+path = r"C:\Data\20170821\bead1\discharge_fine3"
+ts = 10.
 
 fdrive = 41.
 make_plot = True
 reprocess_file = True
 
 data_columns = [0, 0] ## column to calculate the correlation against
-drive_column = 12 ## column containing drive signal
+drive_column = 11 ## column containing drive signal
 
 
 
@@ -71,11 +71,11 @@ if reprocess_file:
 cal = 2.3e-14/(0.01*1.6e-19*2525)
 tarr = np.linspace(0, ts*len(np.array(corr_data)[:, 0]), len(np.array(corr_data)[:, 0]))
 
-print np.shape(corr_data)
+print(np.shape(corr_data))
 
 if make_plot:
-        plt.plot(tarr,np.array(corr_data)[:, 0]*cal,'o', markersize = 4, label = "Response at Max Phase")
-        plt.plot(tarr,np.array(corr_data)[:, 1]*cal,'o',markersize = 4, label = "Response at 0 deg Phase")
+        plt.plot(tarr, np.array(corr_data)[:, 0]*cal,'o', markersize = 4, label = "Response at Max Phase")
+        plt.plot(tarr, np.array(corr_data)[:, 1]*cal,'o',markersize = 4, label = "Response at 0 deg Phase")
         plt.xlabel("Time [s]")
         plt.ylabel("Bead charge [e]")
         plt.legend()

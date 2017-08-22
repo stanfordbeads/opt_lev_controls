@@ -8,14 +8,14 @@ import glob
 from scipy.optimize import curve_fit
 
 
-data_dir1 = r"C:\Data\20170814\image_cal\p0\ystep_prof\ztilty80um"
-data_dir2 = r"C:\Data\20170814\image_cal\p0\ystep_prof\ztilty50um"
+data_dir1 = r"C:\Data\20170821\profiling\p3_y"
+data_dir2 = r"C:\Data\20170821\profiling\p3"
 
 #out_dir = r"C:\Data\20170704\profiling\output"
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
 multi_dir = True #False
-height_to_plot = 0.
+height_to_plot = 10.
 
 log_profs = True
 
@@ -54,9 +54,15 @@ def spatial_bin(xvec, yvec, bin_size = .13):
         
     
 
-def profile(fname, ends = 100, stage_cal = 8., stage_column = stage_column):
+def profile(fname, ends = 100, stage_cal = 8., stage_column = 17.):
     dat, attribs, f = bu.getdata(fname)
     dat = dat[ends:-ends, :]
+    if 'xsweep' in fname:
+        stage_column = 17
+    elif 'ysweep' in fname:
+        stage_column = 18
+    #elif 'zsweep' in fname:
+        #stage_column = 19
     dat[:,stage_column]*=stage_cal
     h = attribs["stage_settings"][2]*cant_cal
     f.close()

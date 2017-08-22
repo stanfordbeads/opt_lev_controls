@@ -10,7 +10,6 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
 		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
 		<Item Name="cFP-1808" Type="FP Serial Controller">
@@ -49,14 +48,25 @@
 				</Item>
 			</Item>
 		</Item>
+		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
 		<Item Name="laser_controller.vi" Type="VI" URL="../../LASER/laser_controller.vi"/>
 		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
 		<Item Name="total_valve_control.vi" Type="VI" URL="../../valve_control/total_valve_control.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
+				<Item Name="AbortMotion.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/AbortMotion.vi"/>
 				<Item Name="Agilent 33XXX Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent 33XXX Series/Agilent 33XXX Series.lvlib"/>
 				<Item Name="Agilent E364X Series Output Single Channel DC Volts.vi" Type="VI" URL="/&lt;instrlib&gt;/Agilent E364X Series/Examples/Agilent E364X Series Output Single Channel DC Volts.vi"/>
 				<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent E364X Series/Agilent E364X Series.lvlib"/>
+				<Item Name="CmdLib.dll" Type="Document" URL="/&lt;instrlib&gt;/Model 8742/CmdLib.dll"/>
+				<Item Name="DeviceClose.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/DeviceClose.vi"/>
+				<Item Name="DeviceOpen.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/DeviceOpen.vi"/>
+				<Item Name="GetMasterDeviceAddress.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/GetMasterDeviceAddress.vi"/>
+				<Item Name="GetPosition.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/GetPosition.vi"/>
+				<Item Name="InitSingleDevice.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/InitSingleDevice.vi"/>
+				<Item Name="RelativeMove.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/RelativeMove.vi"/>
+				<Item Name="SetZeroPosition.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/SetZeroPosition.vi"/>
+				<Item Name="Shutdown.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/Shutdown.vi"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
@@ -345,6 +355,7 @@
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
 				<Item Name="subTimeDelay.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/TimeDelayBlock.llb/subTimeDelay.vi"/>
+				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
 				<Item Name="TagReturnType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/TagReturnType.ctl"/>
 				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
 				<Item Name="Three Button Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog.vi"/>
@@ -355,6 +366,7 @@
 				<Item Name="VISA Open Access Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Open Access Mode.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 			</Item>
+			<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
 			<Item Name="AG-UC2-UC8_Open.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Open.vi"/>
 			<Item Name="ag33xxx - Close.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Close.vi"/>
 			<Item Name="ag33xxx - Config Waveform.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Config Waveform.vi"/>
@@ -367,6 +379,7 @@
 			<Item Name="AgilisCmdLib.dll" Type="Document" URL="../../../../../Program Files/Newport/Piezo Motion Control/Newport AG-UC2-UC8 Applet/Samples/LabVIEW 2009/AgilisCmdLib.dll"/>
 			<Item Name="arange (SubVI).vi" Type="VI" URL="../arange (SubVI).vi"/>
 			<Item Name="check_folder (SubVI).vi" Type="VI" URL="../check_folder (SubVI).vi"/>
+			<Item Name="check_folder_no_prompt (SubVI).vi" Type="VI" URL="../check_folder_no_prompt (SubVI).vi"/>
 			<Item Name="check_if_should_flash (SubVI).vi" Type="VI" URL="../check_if_should_flash (SubVI).vi"/>
 			<Item Name="check_valve_status.vi" Type="VI" URL="../../valve_control/check_valve_status.vi"/>
 			<Item Name="ChooseCorrectInstrument.vi" Type="VI" URL="../../agilis/move_stage/ChooseCorrectInstrument.vi"/>
@@ -378,6 +391,7 @@
 			<Item Name="create_process_list (SubVI).vi" Type="VI" URL="../create_process_list (SubVI).vi"/>
 			<Item Name="create_subarray (SubVI).vi" Type="VI" URL="../create_subarray (SubVI).vi"/>
 			<Item Name="display_environ (SubVI).vi" Type="VI" URL="../../valve_control/display_environ (SubVI).vi"/>
+			<Item Name="drive dual picomotor zigzag (SubVI).vi" Type="VI" URL="../../picomotor/drive dual picomotor zigzag (SubVI).vi"/>
 			<Item Name="flash_lamp (SubVI).vi" Type="VI" URL="../flash_lamp (SubVI).vi"/>
 			<Item Name="gate_valve1.vi" Type="VI" URL="../../valve_control/gate_valve1.vi"/>
 			<Item Name="gate_valve_combo.vi" Type="VI" URL="../../valve_control/gate_valve_combo.vi"/>
@@ -400,11 +414,15 @@
 			<Item Name="save_data (SubVI).vi" Type="VI" URL="../save_data (SubVI).vi"/>
 			<Item Name="set_dc_supply (SubVI).vi" Type="VI" URL="../set_dc_supply (SubVI).vi"/>
 			<Item Name="set_electrodes (SubVI).vi" Type="VI" URL="../set_electrodes (SubVI).vi"/>
+			<Item Name="set_electrodes_init (SubVI).vi" Type="VI" URL="../set_electrodes_init (SubVI).vi"/>
 			<Item Name="set_instruments (SubVI).vi" Type="VI" URL="../set_instruments (SubVI).vi"/>
 			<Item Name="set_stage (SubVI).vi" Type="VI" URL="../set_stage (SubVI).vi"/>
+			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="../set_stage_and_electrode_init (SubVI).vi"/>
+			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="../set_stage_init (SubVI).vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
 			<Item Name="synth_set (SubVI).vi" Type="VI" URL="../synth_set (SubVI).vi"/>
 			<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>
+			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="../take_picture_pymba (SubVI).vi"/>
 			<Item Name="valve_state (SubVI).vi" Type="VI" URL="../../valve_control/valve_state (SubVI).vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
