@@ -1,5 +1,4 @@
-## load a file containing values of the voltage vs beta and remake it, assuming
-## that the force scales like the square of the voltage
+
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -9,12 +8,12 @@ import matplotlib.pyplot as plt
 
 
 Fsamp = 5000.
-cutsamp = 2000
+cutsamp = 0
 Npoints = 250000
-drive_elec = 1
+drive_elec = 6
 drive_voltage = 1
 
-scaled_amp = 3.0  # max voltage played by DAC
+scaled_amp = 10.0  # max voltage played by DAC
 
 filname = r'C:\GitHub\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_optphase2_higherf.txt' % (drive_elec, scaled_amp)
 
@@ -76,7 +75,7 @@ if optimize_phase and not load_opt_phase:
     phases = phase_arrs[ind]
     opt_phase_out = np.column_stack((drive_freqs, phases))
     
-    np.savetxt("opt_phases_1-600Hz.txt", opt_phase_out)
+    np.savetxt("opt_phases_1-600Hz_nocutsamp.txt", opt_phase_out)
 
     for i in range(len(drive_freqs)):
         freq = drive_freqs[i]
@@ -85,7 +84,7 @@ if optimize_phase and not load_opt_phase:
 
 
 elif load_opt_phase:
-    data = np.loadtxt("opt_phases_1-600Hz.txt")
+    data = np.loadtxt("opt_phases_1-600Hz_nocutsamp.txt")
     freqs = data[:,0]
     phases = data[:,1]
     for i in range(len(freqs)):

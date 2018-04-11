@@ -10,15 +10,16 @@ import scipy.signal as sp
 import scipy.optimize as opt
 import cPickle as pickle
 
-path = r"C:\Data\20170821\bead1\discharge_fine3"
-ts = 10.
+path = r"C:\Data\20180404\bead2\discharge\fine2"
+ts = 25.
 
 fdrive = 41.
 make_plot = True
 
-data_columns = [0, 1] ## column to calculate the correlation against
+data_columns = [0, 1, 2] ## column to calculate the correlation against
 col = 0
-drive_column = 11 ##-1 ## column containing drive signal
+#drive_column = 11 ##-1 ## column containing drive signal
+drive_column = 11 
 
 def getphase(fname):
         print "Getting phase from: ", fname 
@@ -43,7 +44,7 @@ def getdata(fname, maxv):
 
         if( len(attribs) > 0 ):
             fsamp = attribs["Fsamp"]
-
+          
         xdat = dat[:,data_columns[col]]
 
         lentrace = len(xdat)
@@ -52,6 +53,7 @@ def getdata(fname, maxv):
 
         #plt.figure()
         #plt.plot( xdat)
+        #plt.figure()
         #plt.plot(dat[:,drive_column])
         #plt.show()
         
@@ -83,12 +85,12 @@ corr_data = []
 
 if make_plot:
     fig0 = plt.figure()
+    #plt.ion()
     plt.hold(False)
 
 last_file = ""
 while( True ):
     ## get the most recent file in the directory and calculate the correlation
-
     cfile = get_most_recent_file( path )
     
     ## wait a sufficient amount of time to ensure the file is closed
@@ -100,14 +102,20 @@ while( True ):
     else:
         last_file = cfile
 
-    ## this ensures that the file is closed before we try to read it
+        ## this ensures that the file is closed before we try to read it
     time.sleep( ts )
-
+    
     if( not best_phase ):
         best_phase = getphase( cfile )
-
-    corr = getdata( cfile, best_phase )
-    corr_data.append(corr )
+        
+    try:
+        corr = getdata( cfile, best_phase )
+        corr_data.append(corr)
+        
+    except:
+        time.sleep(9)
+        corr = getdata( cfile, best_phase )
+        corr_data.append(corr)
 
     np.savetxt( os.path.join(path, "current_corr.txt"), [corr,] )
 
@@ -116,4 +124,4 @@ while( True ):
         plt.draw()
         plt.pause(0.001)
 
-    
+            

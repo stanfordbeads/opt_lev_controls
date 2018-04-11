@@ -8,18 +8,26 @@ import glob
 from scipy.optimize import curve_fit
 
 
-data_dir1 = r"C:\Data\20170821\profiling\p3_y"
-data_dir2 = r"C:\Data\20170821\profiling\p3"
+
+data_dir1 = r"C:\Data\20180404\profiles\xprof_one_out_5_backin_3_out0_5"
+data_dir2 = r"C:\Data\20180404\profiles\xprof_one_out_5_backin_3_out0_5_fmod"
+
+#dirlabs = ['80um Above', '80um Below']
+#dirlabs = ['x', 'y']
+dirlabs = ['dir1', 'dir2']
 
 #out_dir = r"C:\Data\20170704\profiling\output"
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
-multi_dir = True #False
-height_to_plot = 10.
+multi_dir = True
+height_to_plot_1 = 10.
+height_to_plot_2 = 10.
+bestind_offset = 0
 
+INVERT = False
 log_profs = True
 
-ROI = [-80, 80] # um
+ROI = [-2, 2] # um
 #OFFSET = 2.*10**(-5)
 OFFSET = 0
 
@@ -30,8 +38,8 @@ gauss_fit = True
 stage_column = 17
 stage_column2 = 17
 
-data_column = 5
-data_column2 = 5  # 0 For data circa 2016
+data_column = 3
+data_column2 = 3  # 0 For data circa 2016
 
 cant_cal = 8. #um/volt
 
@@ -52,15 +60,24 @@ def spatial_bin(xvec, yvec, bin_size = .13):
     return bins, y_binned, y_errors
     
         
-    
+def gauss(x, A, mu, sig):
+    '''gaussian fitting function'''
+    return A*np.exp(-1.*(x-mu)**2/(2.*sig**2))
 
 def profile(fname, ends = 100, stage_cal = 8., stage_column = 17.):
     dat, attribs, f = bu.getdata(fname)
     dat = dat[ends:-ends, :]
     if 'xsweep' in fname:
         stage_column = 17
+        sign = 1.0
     elif 'ysweep' in fname:
         stage_column = 18
+        if 'left' in fname:
+            sign = -1.0
+        elif 'right' in fname:
+            sign = 1.0
+        else:
+            sign = 1.0
     #elif 'zsweep' in fname:
         #stage_column = 19
     dat[:,stage_column]*=stage_cal
@@ -79,8 +96,16 @@ def profile(fname, ends = 100, stage_cal = 8., stage_column = 17.):
     #plt.show()
     proft = np.gradient(int_filt)- OFFSET
     stage_filt = sig.filtfilt(b, a, dat[:, stage_column])
-    dir_sign = np.sign(np.gradient(stage_filt))
-    b, y, e = spatial_bin(dat[dir_sign<0, stage_column], proft[dir_sign<0])
+    dir_sign = np.sign(np.gradient(stage_filt)) * sign
+    xvec = dat[:,stage_column]
+    yvec = (proft - proft * dir_sign) * 0.5 - (proft + proft * dir_sign) * 0.5
+    #plt.plot(xvec, yvec)
+    #plt.show()
+    b, y, e = spatial_bin(xvec, yvec)
+    #plt.errorbar(b, y, e)
+    #plt.show()
+    if INVERT:
+        y = -1.*y
     return b, y, e, h
 
 class File_prof:
@@ -113,6 +138,20 @@ class File_prof:
         #norm = np.sum(self.y*self.dxs)
         self.sigmasq = np.sum(self.bins[ROIbool]**2*self.y[ROIbool])/norm
         #self.sigmasq = np.sum(self.bins**2*self.y)/norm
+
+    def sigsq2(self, p0 = [1., 0., 3.], make_plot = False, plt_region = [-10, 10]):
+        '''finds second moment by fitting to gaussian'''
+        if type(self.mean) == str:
+            self.dist_mean()
+        popt, pcov = curve_fit(gauss, self.bins, self.y, p0 = p0)
+        if make_plot:
+            pb = (self.bins<plt_region[1])*(self.bins>plt_region[0])
+            plt.semilogy(self.bins[pb], self.y[pb], 'o')
+            plt.semilogy(self.bins[pb], gauss(self.bins[pb], *popt), 'r')
+            plt.show()
+        self.sigmasq = popt[-1]**2
+        
+        
          
 
 def proc_dir(dir):
@@ -148,7 +187,7 @@ def proc_dir(dir):
     hs = []
 
     for f in file_profs:
-        f.sigsq()
+        f.sigsq2()
         sigmasqs.append(f.sigmasq)
         hs.append(f.cant_height)
         
@@ -160,7 +199,7 @@ def plot_profs(fp_arr):
     for fp in fp_arr:
         #plt.errorbar(fp.bins, fp.y, fp.errors, label = str(np.round(fp.cant_height)) + 'um')
         if multi_dir:
-            lab = 'dir' + str(i)
+            lab = dirlabs[i-1]
         else:
             lab = str(np.round(fp.cant_height)) + 'um'
         i += 1
@@ -194,8 +233,8 @@ file_profs, hs, sigmasqs = proc_dir(data_dir1)
 
 if multi_dir:
     fp2, hs2, sigsq2 = proc_dir(data_dir2)
-    ind = np.argmin(np.abs(hs - height_to_plot))
-    ind2 = np.argmin(np.abs(hs2 - height_to_plot))
+    ind = np.argmin(np.abs(hs - height_to_plot_1))
+    ind2 = np.argmin(np.abs(hs2 - height_to_plot_2))
     plot_profs([file_profs[ind]] + [fp2[ind2]])
 
 else:
@@ -231,7 +270,7 @@ if msq_fit:
     
     ax1.plot(hs, sigmasqs, 'o')
     ax1.plot(hplt, Szsq(hplt, *popt), 'r',linewidth = 2,  label = "M^2=%0.3g"%popt[1]**2)
-    ax1.set_title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt[-1],popt[0]))
+    ax1.set_title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt[-1],popt[0]*2.0))
     ax1.set_ylabel("second moment [um^2]")
     ax1.set_ylim(0, maxsig*1.2)
     ax1.legend(loc=0)
@@ -239,7 +278,7 @@ if msq_fit:
     if multi_dir:
         ax2.plot(hs2, sigsq2, 'o')
         ax2.plot(hplt2, Szsq(hplt2, *popt2), 'r',linewidth = 2,  label = "M^2=%0.3g"%popt2[1]**2)
-        ax2.set_title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt2[-1],popt2[0]))
+        ax2.set_title("Trap Focus at h = %g um, Waist w0 = %0.2g um"%(popt2[-1],popt2[0]*2.0))
         ax2.set_ylabel("Second moment [um^2]")
         ax2.set_xlabel("Cantilever height [um]")
         ax2.set_ylim(0, maxsig*1.2)
@@ -264,9 +303,11 @@ if gauss_fit:
         return A * np.exp( -2 * (x-x0)**2 / (w0**2) )
     
     if msq_fit:
-        bestfit = np.argmin(np.abs(np.array(hs) - popt[-1]))
+        bestfit = np.argmin(np.abs(np.array(hs) - popt[-1])) - \
+                                                       bestind_offset
         if multi_dir:
-            bestfit2 = np.argmin(np.abs(np.array(hs2) - popt2[-1]))
+            bestfit2 = np.argmin(np.abs(np.array(hs2) - popt2[-1])) - \
+                                                              bestind_offset
     else:
         bestfit = 0
         if multi_dir:
@@ -283,12 +324,14 @@ if gauss_fit:
     #p02 = [10**(-3), 0, 10, 10**(-7)]
     #popt2, pcov2 = curve_fit(gauss_wconst, bestprof.bins, bestprof.y, p0=p02)
 
-    p02 = [10**(-3), 0, 10]    
-    popt3, pcov3 = curve_fit(gauss, bestprof.bins, bestprof.y, p0=p02)
+    p02 = [10**(-3), 0, 10]
+    b_fit_1 = (bestprof.bins>ROI[0])*(bestprof.bins<ROI[1]) #get lower index for fit
+    popt3, pcov3 = curve_fit(gauss, bestprof.bins[b_fit_1], bestprof.y[b_fit_1], p0=p02)
     fitpts = np.arange(np.min(bestprof.bins), np.max(bestprof.bins), 0.1)
     
     if multi_dir:
-        popt4, pcov4 = curve_fit(gauss, bestprof2.bins, bestprof2.y, p0=p02)
+        b_fit_2 = (bestprof2.bins>ROI[0])*(bestprof2.bins<ROI[1])
+        popt4, pcov4 = curve_fit(gauss, bestprof2.bins[b_fit_2], bestprof2.y[b_fit_2], p0=p02)
         fitpts2 = np.arange(np.min(bestprof2.bins), np.max(bestprof2.bins), 0.1)
 
         
@@ -322,7 +365,7 @@ if gauss_fit:
     
     if multi_dir:
         ax2.plot(bestprof2.bins, bestprof2.y, 'o')
-        ax2.plot(fitpts2, gauss(fitpts2, *popt4), 'r', linewidth = 2, label='h = %0.2g' % lab)
+        ax2.plot(fitpts2, gauss(fitpts2, *popt4), 'r', linewidth = 2, label='h = %0.2g' % lab2)
         if compute_tail_pow:
             r2 = np.abs(bestprof2.bins)
             dr2 = bestprof2.bins[1] - bestprof2.bins[0]
@@ -345,6 +388,7 @@ if gauss_fit:
         ax2.set_ylabel("Intensity Profile [arbitrary]")
         ax2.set_ylim(10**(-6), popt4[0] * 10)
         ax2.set_yscale('log')
+        ax2.legend(loc=0)
     
     plt.show()
 

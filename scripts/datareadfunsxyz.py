@@ -7,18 +7,22 @@ import numpy as np
 import bead_util as bu
 
 
-refname = r"turbo_mbar_xyzcool.h5"
-reflab = ""
+refname = r"0_006mbar_nofb_50V_stage-X55um-Y40um-Z10um_Ydrive40umAC-17Hz.h5"
+reflab = "init"
 
-fname0 = r"turbo_mbar_xyzcool_later_elec3_10000mV41Hz0mVdc.h5"
-fillab = ""
+fname0 = r""
+fillab = "new"
 
-path = r"C:\Data\20170821\bead1"
+path = r"C:\Data\20180404\background_no_lens_tube_freq_step"
 d2plt = 0
 conv_fac = 6.4e-14
 
 Fs = 5e3  ## this is ignored with HDF5 files
-NFFT = 2**12
+userNFFT = 250000
+
+fullNFFT = True #False
+#window = matplotlib.mlab.window_none
+window = matplotlib.mlab.window_hanning
 
 plot_second_xy = False
 plot_pow = False
@@ -58,9 +62,13 @@ def getdata(fname):
 	else:
 		dat = numpy.loadtxt(fname, skiprows = 5, usecols = [2, 3, 4, 5, 6] )
 
-	xpsd, freqs = matplotlib.mlab.psd(dat[:, 0]-np.mean(dat[:, 0]), Fs = Fs, NFFT = NFFT, detrend = 'linear') 
-	ypsd, freqs = matplotlib.mlab.psd(dat[:, 1]-np.mean(dat[:, 1]), Fs = Fs, NFFT = NFFT, detrend = 'linear')
-        zpsd, freqs = matplotlib.mlab.psd(dat[:, 2]-np.mean(dat[:, 2]), Fs = Fs, NFFT = NFFT, detrend = 'linear')
+        if fullNFFT:
+                NFFT = len(dat[:,0])
+        else:
+                NFFT = userNFFT
+	xpsd, freqs = matplotlib.mlab.psd(dat[:, 0]-np.mean(dat[:, 0]), Fs = Fs, NFFT = NFFT, detrend = 'linear', window=window) 
+	ypsd, freqs = matplotlib.mlab.psd(dat[:, 1]-np.mean(dat[:, 1]), Fs = Fs, NFFT = NFFT, detrend = 'linear', window=window) 
+        zpsd, freqs = matplotlib.mlab.psd(dat[:, 2]-np.mean(dat[:, 2]), Fs = Fs, NFFT = NFFT, detrend = 'linear', window=window) 
         powpsd, freqs = matplotlib.mlab.psd(dat[:, 3]-np.mean(dat[:, 3]), Fs = Fs, NFFT = NFFT, detrend = 'linear')
         xpsd2, freqs = matplotlib.mlab.psd(dat[:, 4]-np.mean(dat[:, 4]), Fs = Fs, NFFT = NFFT, detrend = 'linear') 
         ypsd2, freqs = matplotlib.mlab.psd(dat[:, 5]-np.mean(dat[:, 5]), Fs = Fs, NFFT = NFFT, detrend = 'linear') 

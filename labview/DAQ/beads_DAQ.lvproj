@@ -10,6 +10,7 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="AG E3644A set.vi" Type="VI" URL="../../AG E3644A set.vi"/>
 		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
 		<Item Name="cFP-1808" Type="FP Serial Controller">
@@ -48,6 +49,7 @@
 				</Item>
 			</Item>
 		</Item>
+		<Item Name="dual_chirp_wphase.vi" Type="VI" URL="../../misc_utils/dual_chirp_wphase.vi"/>
 		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
 		<Item Name="laser_controller.vi" Type="VI" URL="../../LASER/laser_controller.vi"/>
 		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
@@ -339,6 +341,7 @@
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="NI_Gmath.lvlib" Type="Library" URL="/&lt;vilib&gt;/gmath/NI_Gmath.lvlib"/>
 				<Item Name="NI_MABase.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MABase.lvlib"/>
+				<Item Name="NI_MAPro.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MAPro.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
 				<Item Name="Open File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Open File+.vi"/>
@@ -386,7 +389,6 @@
 			<Item Name="clean_up_data_tasks (SubVI).vi" Type="VI" URL="../clean_up_data_tasks (SubVI).vi"/>
 			<Item Name="clean_up_in_loop (SubVI).vi" Type="VI" URL="../clean_up_in_loop (SubVI).vi"/>
 			<Item Name="clean_up_instruments (SubVI).vi" Type="VI" URL="../clean_up_instruments (SubVI).vi"/>
-			<Item Name="cold_cathode_control.vi" Type="VI" URL="../../valve_control/cold_cathode_control.vi"/>
 			<Item Name="create_file_name (SubVI).vi" Type="VI" URL="../create_file_name (SubVI).vi"/>
 			<Item Name="create_process_list (SubVI).vi" Type="VI" URL="../create_process_list (SubVI).vi"/>
 			<Item Name="create_subarray (SubVI).vi" Type="VI" URL="../create_subarray (SubVI).vi"/>
@@ -397,6 +399,7 @@
 			<Item Name="gate_valve_combo.vi" Type="VI" URL="../../valve_control/gate_valve_combo.vi"/>
 			<Item Name="Get Full Terminal Name.vi" Type="VI" URL="../../Get Full Terminal Name.vi"/>
 			<Item Name="HP 3325A Function Gen.vi" Type="VI" URL="../../HP 3325A Function Gen.vi"/>
+			<Item Name="HP 33120A Function Gen - SIMPLE.vi" Type="VI" URL="../../HP 33120A Function Gen - SIMPLE.vi"/>
 			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="make_dc_array (SubVI).vi" Type="VI" URL="../make_dc_array (SubVI).vi"/>
@@ -408,7 +411,6 @@
 			</Item>
 			<Item Name="read_data (SubVI).vi" Type="VI" URL="../read_data (SubVI).vi"/>
 			<Item Name="read_environment (SubVI).vi" Type="VI" URL="../../read_environment (SubVI).vi"/>
-			<Item Name="read_pressures.vi" Type="VI" URL="../read_pressures.vi"/>
 			<Item Name="replace_sub_array (SubVI).vi" Type="VI" URL="../replace_sub_array (SubVI).vi"/>
 			<Item Name="RVC300_open_control.vi" Type="VI" URL="../../valve_control/RVC300_open_control.vi"/>
 			<Item Name="save_data (SubVI).vi" Type="VI" URL="../save_data (SubVI).vi"/>
@@ -419,6 +421,7 @@
 			<Item Name="set_stage (SubVI).vi" Type="VI" URL="../set_stage (SubVI).vi"/>
 			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="../set_stage_and_electrode_init (SubVI).vi"/>
 			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="../set_stage_init (SubVI).vi"/>
+			<Item Name="single_tone_analysis.vi" Type="VI" URL="../../misc_utils/single_tone_analysis.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
 			<Item Name="synth_set (SubVI).vi" Type="VI" URL="../synth_set (SubVI).vi"/>
 			<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>

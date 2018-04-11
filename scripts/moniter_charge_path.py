@@ -10,7 +10,7 @@ import scipy.signal as sp
 import scipy.optimize as opt
 import cPickle as pickle
 
-path = r"C:\Data\20170821\bead1\discharge_fine3"
+path = r"C:\Data\20170822\bead6\recharge_2"
 ts = 10.
 
 fdrive = 41.
