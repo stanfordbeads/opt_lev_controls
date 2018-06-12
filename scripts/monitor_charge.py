@@ -1,127 +1,131 @@
-## load all files in a directory and plot the correlation of the resonse
-## with the drive signal versus time
+import os, fnmatch, sys, time
+
+import pickle
+
+import scipy.interpolate as interp
 
 import numpy as np
-import matplotlib, calendar
 import matplotlib.pyplot as plt
-import os, re, time, glob
+import matplotlib.mlab as mlab
+
 import bead_util as bu
-import scipy.signal as sp
-import scipy.optimize as opt
-import cPickle as pickle
 
-path = r"C:\Data\20180404\bead2\discharge\fine2"
-ts = 25.
+import time
 
-fdrive = 41.
-make_plot = True
+dirname = r'C:\Data\20180605\bead1\discharge\coarse'
+live = True
 
-data_columns = [0, 1, 2] ## column to calculate the correlation against
-col = 0
-#drive_column = 11 ##-1 ## column containing drive signal
-drive_column = 11 
+elec_ind = 3
+pos_ind = 0  # {0: x, 1: y, 2: z}
 
-def getphase(fname):
-        print "Getting phase from: ", fname 
-        dat, attribs, cf = bu.getdata(os.path.join(path, fname))
-        fsamp = attribs["Fsamp"]
-        xdat = dat[:,data_columns[col]]
-
-        xdat = np.append(xdat, np.zeros( int(fsamp/fdrive) ))
-        corr2 = np.correlate(xdat,dat[:,drive_column])
-        maxv = np.argmax(corr2) 
-
-        cf.close()
-
-        print maxv
-        return maxv
+ts = 10
 
 
-def getdata(fname, maxv):
+########
 
-	print "Processing ", fname
-        dat, attribs, cf = bu.getdata(os.path.join(path, fname))
+max_corr = []
+inphase_corr = []
 
-        if( len(attribs) > 0 ):
-            fsamp = attribs["Fsamp"]
-          
-        xdat = dat[:,data_columns[col]]
+plt.ion()
 
-        lentrace = len(xdat)
-        ## zero pad one cycle
-        corr_full = bu.corr_func( dat[:,drive_column], xdat, fsamp, fdrive)
+fig, ax = plt.subplots(1,1)
+ax.plot(max_corr)
+ax.plot(inphase_corr)
 
-        #plt.figure()
-        #plt.plot( xdat)
-        #plt.figure()
-        #plt.plot(dat[:,drive_column])
-        #plt.show()
+old_mrf = ''
+
+
+if live:
+    while True:
+
+        files = bu.find_all_fnames(dirname)
+        files = bu.sort_files_by_timestamp(files)
+
+        try:
+            mrf = files[-2]
+        except:
+            mrf = ''
+
+        if mrf != old_mrf:
         
+            print mrf
 
-        return corr_full[0], np.max(corr_full) 
+            df = bu.DataFile()
+            df.load(mrf)
 
-def get_most_recent_file(p):
+            drive = df.electrode_data[elec_ind]
+            resp = df.pos_data[pos_ind]
 
-    ## only consider single frequency files, not chirps
-    filelist = glob.glob(os.path.join(p,"*Hz*.h5"))  ##os.listdir(p)
-    #filelist = [filelist[0]]
-    mtime = 0
-    mrf = ""
-    #print filelist
-    for fin in filelist:
-        if( fin[-3:] != ".h5" ):
+            freqs = np.fft.rfftfreq(len(resp), d=1.0/df.fsamp)
+            fft = np.fft.rfft(resp)
+            dfft = np.fft.rfft(drive)
+
+            amp = np.abs(fft)
+            phase = np.angle(fft)
+
+            damp = np.abs(dfft)
+            dphase = np.angle(dfft)
+
+            ind = np.argmax(amp[1:]) + 1
+
+            drive_freq = freqs[ind]
+
+            corr = amp[ind] / damp[ind]
+            max_corr.append(corr)
+            inphase_corr.append( (corr * np.exp( 1.0j * (phase[ind] - dphase[ind]) )).real )
+
+            ax.clear()
+
+            ax.plot(max_corr)
+            plt.pause(0.001)
+            ax.plot(inphase_corr)
+            plt.pause(0.001)
+            plt.draw()
+    
+            old_mrf = mrf
+
+        time.sleep(ts)
+
+else:
+
+    files = bu.find_all_fnames(dirname)
+    files = bu.sort_files_by_timestamp(files)
+
+    for filname in files:
+        
+        df = bu.DataFile()
+        df.load(filname)
+
+        drive = df.electrode_data[elec_ind]
+        resp = df.pos_data[pos_ind]
+
+        if len(resp) != len(drive):
             continue
-        f = os.path.join(path, fin) 
-        if os.path.getmtime(f)>mtime:
-            mrf = f
-            mtime = os.path.getmtime(f)
 
-    fnum = re.findall('\d+.h5', mrf)[0][:-3]
-    return mrf#.replace(fnum, str(int(fnum)-1))
+        freqs = np.fft.rfftfreq(len(resp), d=1.0/df.fsamp)
+        fft = np.fft.rfft(resp)
+        dfft = np.fft.rfft(drive)
 
-
-best_phase = None
-corr_data = []
-
-if make_plot:
-    fig0 = plt.figure()
-    #plt.ion()
-    plt.hold(False)
-
-last_file = ""
-while( True ):
-    ## get the most recent file in the directory and calculate the correlation
-    cfile = get_most_recent_file( path )
-    
-    ## wait a sufficient amount of time to ensure the file is closed
-    print cfile
-    time.sleep(1)
-
-    if( cfile == last_file ): 
-        continue
-    else:
-        last_file = cfile
-
-        ## this ensures that the file is closed before we try to read it
-    time.sleep( ts )
-    
-    if( not best_phase ):
-        best_phase = getphase( cfile )
+        amp = np.abs(fft)
+        phase = np.angle(fft)
         
-    try:
-        corr = getdata( cfile, best_phase )
-        corr_data.append(corr)
-        
-    except:
-        time.sleep(9)
-        corr = getdata( cfile, best_phase )
-        corr_data.append(corr)
+        damp = np.abs(dfft)
+        dphase = np.angle(dfft)
 
-    np.savetxt( os.path.join(path, "current_corr.txt"), [corr,] )
+        ind = np.argmax(amp[1:]) + 1
 
-    if make_plot:
-        plt.plot(np.array(corr_data))
-        plt.draw()
+        drive_freq = freqs[ind]
+    
+        corr = amp[ind] / damp[ind]
+        max_corr.append(corr)
+        inphase_corr.append( (corr * np.exp( 1.0j * (phase[ind] - dphase[ind]) )).real )
+    
+        ax.clear()
+    
+        ax.plot(max_corr)
         plt.pause(0.001)
+        ax.plot(inphase_corr)
+        plt.pause(0.001)
+        plt.draw()
 
-            
+        time.sleep(ts)

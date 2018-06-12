@@ -9,8 +9,8 @@ from scipy.optimize import curve_fit
 
 
 
-data_dir1 = r"C:\Data\20180404\profiles\xprof_one_out_5_backin_3_out0_5"
-data_dir2 = r"C:\Data\20180404\profiles\xprof_one_out_5_backin_3_out0_5_fmod"
+data_dir1 = r"C:\Data\20180524\profiling\xsweep_2"
+data_dir2 = r"C:\Data\20180524\profiling\xsweep_2"
 
 #dirlabs = ['80um Above', '80um Below']
 #dirlabs = ['x', 'y']
@@ -20,8 +20,8 @@ dirlabs = ['dir1', 'dir2']
 #data_dir2 = r"C:\Data\20160429\beam_profiles1"
 
 multi_dir = True
-height_to_plot_1 = 10.
-height_to_plot_2 = 10.
+height_to_plot_1 = 0.
+height_to_plot_2 = 0.
 bestind_offset = 0
 
 INVERT = False
@@ -73,9 +73,9 @@ def profile(fname, ends = 100, stage_cal = 8., stage_column = 17.):
     elif 'ysweep' in fname:
         stage_column = 18
         if 'left' in fname:
-            sign = -1.0
-        elif 'right' in fname:
             sign = 1.0
+        elif 'right' in fname:
+            sign = -1.0
         else:
             sign = 1.0
     #elif 'zsweep' in fname:
