@@ -7,14 +7,14 @@ import scipy.signal as signal
 
 Fsamp = 5000.
 Npoints = 300000
-drive_elec = 0
+drive_elec = 7
 drive_voltage = 10
 
-chirp_start = 1000
+chirp_start = 1
 chirp_length = 60
-chirp_end = 1
+chirp_end = 1000
 
-filname = r'C:\GitHub\opt_lev_controls\labview\DAQ_settings\chirp_1000-1Hz.txt'
+filname = r'C:\GitHub\opt_lev_controls\labview\DAQ_settings\chirp_elec7_1-1000Hz_60s.txt'
 
 
 ######################################

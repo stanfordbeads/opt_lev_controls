@@ -162,7 +162,6 @@
 				<Item Name="DAQmx Create DO Channel (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create DO Channel (sub).vi"/>
 				<Item Name="DAQmx Create Strain Rosette AI Channels (sub).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Strain Rosette AI Channels (sub).vi"/>
 				<Item Name="DAQmx Create Virtual Channel.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Virtual Channel.vi"/>
-				<Item Name="DAQmx Disconnect Terminals.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/routing.llb/DAQmx Disconnect Terminals.vi"/>
 				<Item Name="DAQmx Fill In Error Info.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/miscellaneous.llb/DAQmx Fill In Error Info.vi"/>
 				<Item Name="DAQmx Read (Analog 1D DBL 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D DBL 1Chan NSamp).vi"/>
 				<Item Name="DAQmx Read (Analog 1D DBL NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Analog 1D DBL NChan 1Samp).vi"/>
@@ -237,7 +236,6 @@
 				<Item Name="DAQmx Timing (Use Waveform).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Use Waveform).vi"/>
 				<Item Name="DAQmx Timing.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing.vi"/>
 				<Item Name="DAQmx Trigger.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Trigger.vi"/>
-				<Item Name="DAQmx Wait Until Done.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/task.llb/DAQmx Wait Until Done.vi"/>
 				<Item Name="DAQmx Write (Analog 1D DBL 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D DBL 1Chan NSamp).vi"/>
 				<Item Name="DAQmx Write (Analog 1D DBL NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D DBL NChan 1Samp).vi"/>
 				<Item Name="DAQmx Write (Analog 1D Wfm NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D Wfm NChan 1Samp).vi"/>
@@ -385,6 +383,7 @@
 			<Item Name="ag33xxx - Utility Default Instrument Setup.vi" Type="VI" URL="../../a33120a/ag33xxx_u.llb/ag33xxx - Utility Default Instrument Setup.vi"/>
 			<Item Name="AgilisCmdLib.dll" Type="Document" URL="../../../../../Program Files/Newport/Piezo Motion Control/Newport AG-UC2-UC8 Applet/Samples/LabVIEW 2009/AgilisCmdLib.dll"/>
 			<Item Name="arange (SubVI).vi" Type="VI" URL="../arange (SubVI).vi"/>
+			<Item Name="build_config_trig (SubVI).vi" Type="VI" URL="../build_config_trig (SubVI).vi"/>
 			<Item Name="check_folder (SubVI).vi" Type="VI" URL="../check_folder (SubVI).vi"/>
 			<Item Name="check_folder_no_prompt (SubVI).vi" Type="VI" URL="../check_folder_no_prompt (SubVI).vi"/>
 			<Item Name="check_if_should_flash (SubVI).vi" Type="VI" URL="../check_if_should_flash (SubVI).vi"/>
@@ -399,11 +398,9 @@
 			<Item Name="display_environ (SubVI).vi" Type="VI" URL="../../valve_control/display_environ (SubVI).vi"/>
 			<Item Name="drive dual picomotor zigzag (SubVI).vi" Type="VI" URL="../../picomotor/drive dual picomotor zigzag (SubVI).vi"/>
 			<Item Name="encode_string (SubVI).vi" Type="VI" URL="../encode_string (SubVI).vi"/>
-			<Item Name="flash_lamp (SubVI).vi" Type="VI" URL="../flash_lamp (SubVI).vi"/>
 			<Item Name="FPGA Timekeeper.lvlib" Type="Library" URL="../../../../../National Instruments Downloads/LabVIEW FPGA English/FPGA Timekeeper 1.1b0/FPGA Timekeeper.lvlib"/>
 			<Item Name="gate_valve1.vi" Type="VI" URL="../../valve_control/gate_valve1.vi"/>
 			<Item Name="gate_valve_combo.vi" Type="VI" URL="../../valve_control/gate_valve_combo.vi"/>
-			<Item Name="Get Full Terminal Name.vi" Type="VI" URL="../../Get Full Terminal Name.vi"/>
 			<Item Name="HP 3325A Function Gen.vi" Type="VI" URL="../../HP 3325A Function Gen.vi"/>
 			<Item Name="HP 33120A Function Gen - SIMPLE.vi" Type="VI" URL="../../HP 33120A Function Gen - SIMPLE.vi"/>
 			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
@@ -426,6 +423,7 @@
 			<Item Name="set_stage (SubVI).vi" Type="VI" URL="../set_stage (SubVI).vi"/>
 			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="../set_stage_and_electrode_init (SubVI).vi"/>
 			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="../set_stage_init (SubVI).vi"/>
+			<Item Name="setup_fpga_daq (SubVI).vi" Type="VI" URL="../setup_fpga_daq (SubVI).vi"/>
 			<Item Name="single_tone_analysis.vi" Type="VI" URL="../../misc_utils/single_tone_analysis.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
 			<Item Name="synth_set (SubVI).vi" Type="VI" URL="../synth_set (SubVI).vi"/>

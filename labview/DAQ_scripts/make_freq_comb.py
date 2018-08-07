@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 Fsamp = 5000.
 cutsamp = 0
 Npoints = 250000
-drive_elec = 6
+drive_elec = 2
 drive_voltage = 1
 
 scaled_amp = 10.0  # max voltage played by DAC
