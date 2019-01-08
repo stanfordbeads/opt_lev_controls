@@ -7,13 +7,13 @@ import numpy as np
 import bead_util as bu
 
 
-refname = r"turbombar_xyzcool_0.h5"
+refname = r"1_5mbar_zcool.h5"
 reflab = ""
 
-fname0 = r"turbombar_xyzcool_10.h5"
+fname0 = r""
 fillab = ""
 
-path = r"C:\Data\20180605\bead1\post_pump"
+path = r"C:\Data\20181119\bead1"
 d2plt = 0
 conv_fac = 6.4e-14
 
