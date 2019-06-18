@@ -19,7 +19,7 @@ drive_column = -1
 laser_column = 3
 
 ## get the shape of the chameleon force vs. distance from Maxime's calculation
-cforce = np.loadtxt(r"c:\GitHub\opt_lev_controls\scripts\data\chameleon_force.txt", delimiter=",")
+cforce = np.loadtxt(r"C:\Users\beads\opt_lev_controls\scripts\data\chameleon_force.txt", delimiter=",")
 ## fit a spline to the data
 cham_spl = interp.UnivariateSpline( cforce[::5,0], cforce[::5,1], s=0 )
 
@@ -662,10 +662,12 @@ def get_hdf5_time(fname):
         dset = f['beads/data/pos_data']
         attribs = copy_attribs(dset.attrs)
         f.close()
+        val = attribs["Time"]
 
     except (KeyError, IOError):
         print "Warning, got no keys for: ", fname
         attribs = {}
+        val = 0
 
-    return attribs["Time"]
+    return val
 

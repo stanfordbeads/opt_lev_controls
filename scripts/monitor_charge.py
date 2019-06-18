@@ -12,13 +12,13 @@ import bead_util as bu
 
 import time
 
-dirname = r'C:\Data\20180605\bead1\discharge\coarse'
-live = True
+dirname = r'D:\data\20190514\bead1\test_with_rga\test5'
+live = False
 
 elec_ind = 3
 pos_ind = 0  # {0: x, 1: y, 2: z}
 
-ts = 10
+ts = 4
 
 
 ########
