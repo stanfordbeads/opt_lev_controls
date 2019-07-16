@@ -12,12 +12,8 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="daq_lib.lvlib" Type="Library" URL="../daq_lib.lvlib"/>
-		<Item Name="dds_host.vi" Type="VI" URL="../../dds/dds_host.vi"/>
-		<Item Name="H5Fclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fclose.vi"/>
 		<Item Name="high_speed_digitizer.vi" Type="VI" URL="../high_speed_digitizer.vi"/>
 		<Item Name="high_speed_digitizer_ao.vi" Type="VI" URL="../high_speed_digitizer_ao.vi"/>
-		<Item Name="OpenCreateReplace HDF5 File.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/OpenCreateReplace HDF5 File.vi"/>
-		<Item Name="RVC300 Comand gasflow.vi" Type="VI" URL="../../valve_control/RVC300 Comand gasflow Folder/RVC300 Comand gasflow.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array Size(s)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array Size(s)__ogtk.vi"/>
@@ -68,9 +64,11 @@
 				<Item Name="Check Object Existence.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/Check Object Existence.vi"/>
 				<Item Name="Check Special Tags.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Check Special Tags.vi"/>
 				<Item Name="Clear Errors.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Clear Errors.vi"/>
+				<Item Name="Close File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Close File+.vi"/>
 				<Item Name="Commit LV Type.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Commit LV Type.vi"/>
 				<Item Name="CommitCacheElement.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/CommitCacheElement.vi"/>
 				<Item Name="compatFileDialog.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatFileDialog.vi"/>
+				<Item Name="compatReadText.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatReadText.vi"/>
 				<Item Name="ConcatPaths.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/ConcatPaths.vi"/>
 				<Item Name="Convert property node font to graphics font.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Convert property node font to graphics font.vi"/>
 				<Item Name="DAQmx Advance Trigger (Digital Edge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Advance Trigger (Digital Edge).vi"/>
@@ -294,6 +292,7 @@
 				<Item Name="ErrorNameCache.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/private/ErrorNameCache.vi"/>
 				<Item Name="ErrWarn.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/ErrWarn.ctl"/>
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
+				<Item Name="Find First Error.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find First Error.vi"/>
 				<Item Name="Find Tag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find Tag.vi"/>
 				<Item Name="Flatten Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/Flatten Error Stack.vi"/>
 				<Item Name="Format Attributes as Table.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/Format Attributes as Table.vi"/>
@@ -339,6 +338,7 @@
 				<Item Name="H5ErrorHandler.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/H5ErrorHandler.vi"/>
 				<Item Name="H5F_obj_types_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5F_obj_types_t.ctl"/>
 				<Item Name="H5Fclose.vi" Type="VI" URL="/&lt;vilib&gt;/addons/h5labview2/file/H5Fclose.vi"/>
+				<Item Name="H5Fclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fclose.vi"/>
 				<Item Name="H5Fcreate.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fcreate.vi"/>
 				<Item Name="H5Fget_name.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fget_name.vi"/>
 				<Item Name="H5Fget_obj_count.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fget_obj_count.vi"/>
@@ -467,13 +467,15 @@
 				<Item Name="MakeComplexCluster.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/MakeComplexCluster.vi"/>
 				<Item Name="MakeUnitArrayType.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/private/MakeUnitArrayType.vi"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
+				<Item Name="NI_AALPro.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALPro.lvlib"/>
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
-				<Item Name="NI_FpgaMspHost.lvlib" Type="Library" URL="/&lt;vilib&gt;/rvi/Analysis/host/Public/NI_FpgaMspHost.lvlib"/>
+				<Item Name="NI_Gmath.lvlib" Type="Library" URL="/&lt;vilib&gt;/gmath/NI_Gmath.lvlib"/>
 				<Item Name="NI_MABase.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MABase.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="Not an HDF5 Refnum Constant.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/Not an HDF5 Refnum Constant.vi"/>
 				<Item Name="Not an HDF5 Refnum.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/Not an HDF5 Refnum.vi"/>
 				<Item Name="Not Found Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Not Found Dialog.vi"/>
+				<Item Name="Open File+.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Open File+.vi"/>
 				<Item Name="OpenCreate LV Type Group.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/OpenCreate LV Type Group.vi"/>
 				<Item Name="OpenCreateGroup (Array).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/OpenCreateGroup (Array).vi"/>
 				<Item Name="OpenCreateGroup (String).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/OpenCreateGroup (String).vi"/>
@@ -481,9 +483,16 @@
 				<Item Name="OpenCreateReplace Attribute.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/OpenCreateReplace Attribute.vi"/>
 				<Item Name="OpenCreateReplace Dataset by Element Type.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataset.llb/OpenCreateReplace Dataset by Element Type.vi"/>
 				<Item Name="OpenCreateReplace Dataset.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataset.llb/OpenCreateReplace Dataset.vi"/>
+				<Item Name="OpenCreateReplace HDF5 File.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/OpenCreateReplace HDF5 File.vi"/>
 				<Item Name="Parse Dataset Path.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/Parse Dataset Path.vi"/>
 				<Item Name="Populate HDF5 Tree.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/Populate HDF5 Tree.vi"/>
 				<Item Name="Read All Attributes.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/Read All Attributes.vi"/>
+				<Item Name="Read Delimited Spreadsheet (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (DBL).vi"/>
+				<Item Name="Read Delimited Spreadsheet (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (I64).vi"/>
+				<Item Name="Read Delimited Spreadsheet (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (string).vi"/>
+				<Item Name="Read Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet.vi"/>
+				<Item Name="Read File+ (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read File+ (string).vi"/>
+				<Item Name="Read Lines From File (with error IO).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Lines From File (with error IO).vi"/>
 				<Item Name="Read LV Type Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Read LV Type Attrs.vi"/>
 				<Item Name="Recover Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/Recover Error Stack.vi"/>
 				<Item Name="ResizeMulticolCol1.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/ResizeMulticolCol1.vi"/>
@@ -516,7 +525,6 @@
 				<Item Name="Unflatten Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/Unflatten Error Stack.vi"/>
 				<Item Name="Update HDF5 Tree Group Icons.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/Update HDF5 Tree Group Icons.vi"/>
 				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
-				<Item Name="VISA Lock Async.vi" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Lock Async.vi"/>
 				<Item Name="VISA Open Access Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Open Access Mode.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 				<Item Name="Write LV Compound Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Write LV Compound Attrs.vi"/>
@@ -524,27 +532,23 @@
 				<Item Name="Write Multiple Attributes.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/Write Multiple Attributes.vi"/>
 			</Item>
 			<Item Name="check_folder (SubVI).vi" Type="VI" URL="../check_folder (SubVI).vi"/>
+			<Item Name="check_folder_no_prompt (SubVI).vi" Type="VI" URL="../check_folder_no_prompt (SubVI).vi"/>
 			<Item Name="check_valve_status.vi" Type="VI" URL="../../valve_control/check_valve_status.vi"/>
-			<Item Name="dds_FPGATarget_ddsfpga_kTR-VUpZgFc.lvbitx" Type="Document" URL="../../dds/FPGA Bitfiles/dds_FPGATarget_ddsfpga_kTR-VUpZgFc.lvbitx"/>
 			<Item Name="display_environ (SubVI).vi" Type="VI" URL="../../valve_control/display_environ (SubVI).vi"/>
 			<Item Name="FPGA Timekeeper.lvlib" Type="Library" URL="../../fpga/FPGA Timekeeper 1.1b0/FPGA Timekeeper.lvlib"/>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="LabVIEW Time to FPGA Time.vi" Type="VI" URL="../../../../../National Instruments Downloads/LabVIEW FPGA English/FPGA Timekeeper 1.1b0/Timekeeper/Utilities/LabVIEW Time to FPGA Time.vi"/>
+			<Item Name="leak_valve_analog.vi" Type="VI" URL="../../valve_control/leak_valve_analog.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="lvimptsl.dll" Type="Document" URL="lvimptsl.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
-			<Item Name="NiFpgaLv.dll" Type="Document" URL="NiFpgaLv.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="read_environment (SubVI).vi" Type="VI" URL="../../read_environment (SubVI).vi"/>
-			<Item Name="RVC300 Callchain2string.vi" Type="VI" URL="../../valve_control/RVC300 Comand gasflow Folder/RVC300 Callchain2string.vi"/>
-			<Item Name="RVC300 Transaction.vi" Type="VI" URL="../../valve_control/RVC300 Comand gasflow Folder/RVC300 Transaction.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
