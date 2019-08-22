@@ -15,10 +15,13 @@
 		<Item Name="AG E3644A set.vi" Type="VI" URL="../../AG E3644A set.vi"/>
 		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
+		<Item Name="create_file_name_discharge (SubVI).vi" Type="VI" URL="../create_file_name_discharge (SubVI).vi"/>
 		<Item Name="daq_lib.lvlib" Type="Library" URL="../../daq_lib.lvlib"/>
+		<Item Name="discharge.vi" Type="VI" URL="../discharge.vi"/>
 		<Item Name="dual_chirp_wphase.vi" Type="VI" URL="../../misc_utils/dual_chirp_wphase.vi"/>
 		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
 		<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B Function Gen.vi"/>
+		<Item Name="initialize_instruments_discharge (SubVI).vi" Type="VI" URL="../initialize_instruments_discharge (SubVI).vi"/>
 		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
 		<Item Name="read_data (SubVI).vi" Type="VI" URL="../read_data (SubVI).vi"/>
 		<Item Name="RGA_scan_new_version.vi" Type="VI" URL="../../valve_control/RGA_scan_new_version.vi"/>
