@@ -3141,7 +3141,6 @@
 			</Item>
 		</Item>
 		<Item Name="local_params.lvlib" Type="Library" URL="../local_params.lvlib"/>
-		<Item Name="logical_shift.vi" Type="VI" URL="../../../../labview_shit/logical_shift.vi"/>
 		<Item Name="sine_gen.vi" Type="VI" URL="../sine_gen.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">

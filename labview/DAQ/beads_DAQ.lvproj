@@ -32,7 +32,6 @@
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="AbortMotion.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/AbortMotion.vi"/>
-				<Item Name="Agilent 33XXX Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent 33XXX Series/Agilent 33XXX Series.lvlib"/>
 				<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent E364X Series/Agilent E364X Series.lvlib"/>
 				<Item Name="CmdLib.dll" Type="Document" URL="/&lt;instrlib&gt;/Model 8742/CmdLib.dll"/>
 				<Item Name="GetPosition.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/GetPosition.vi"/>
@@ -558,14 +557,6 @@
 			</Item>
 			<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
 			<Item Name="AG-UC2-UC8_Open.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Open.vi"/>
-			<Item Name="ag33xxx - Close.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Close.vi"/>
-			<Item Name="ag33xxx - Config Waveform.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Config Waveform.vi"/>
-			<Item Name="ag33xxx - Error Message.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Error Message.vi"/>
-			<Item Name="ag33xxx - Error Query.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Error Query.vi"/>
-			<Item Name="ag33xxx - Initialize.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Initialize.vi"/>
-			<Item Name="ag33xxx - Reset.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Reset.vi"/>
-			<Item Name="ag33xxx - Select User Def Wfm.vi" Type="VI" URL="../../a33120a/ag33xxx.llb/ag33xxx - Select User Def Wfm.vi"/>
-			<Item Name="ag33xxx - Utility Default Instrument Setup.vi" Type="VI" URL="../../a33120a/ag33xxx_u.llb/ag33xxx - Utility Default Instrument Setup.vi"/>
 			<Item Name="Agilent E364X Series Output Single Channel DC Volts.vi" Type="VI" URL="../../e364x/Agilent E364X Series/Examples/Agilent E364X Series Output Single Channel DC Volts.vi"/>
 			<Item Name="AgilisCmdLib.dll" Type="Document" URL="../../../../../../Program Files/Newport/Piezo Motion Control/Newport AG-UC2-UC8 Applet/Samples/LabVIEW 2009/AgilisCmdLib.dll"/>
 			<Item Name="arange (SubVI).vi" Type="VI" URL="../arange (SubVI).vi"/>
@@ -605,7 +596,6 @@
 			<Item Name="make_dc_array (SubVI).vi" Type="VI" URL="../make_dc_array (SubVI).vi"/>
 			<Item Name="make_electrode_array (SubVI).vi" Type="VI" URL="../make_electrode_array (SubVI).vi"/>
 			<Item Name="make_stage_array (SubVI).vi" Type="VI" URL="../make_stage_array (SubVI).vi"/>
-			<Item Name="make_synth_array (SubVI).vi" Type="VI" URL="../make_synth_array (SubVI).vi"/>
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -624,7 +614,6 @@
 			<Item Name="Shutdown.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/Shutdown.vi"/>
 			<Item Name="single_tone_analysis.vi" Type="VI" URL="../../misc_utils/single_tone_analysis.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
-			<Item Name="synth_set (SubVI).vi" Type="VI" URL="../synth_set (SubVI).vi"/>
 			<Item Name="take_data_no-trig (SubVI).vi" Type="VI" URL="../take_data_no-trig (SubVI).vi"/>
 			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="../take_picture_pymba (SubVI).vi"/>
 			<Item Name="valve_state (SubVI).vi" Type="VI" URL="../../valve_control/valve_state (SubVI).vi"/>
