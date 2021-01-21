@@ -10,43 +10,6 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="cFP-1808" Type="FP Serial Controller">
-			<Property Name="Bound" Type="Bool">false</Property>
-			<Item Name="cFP-180x @0 Bank" Type="FP Serial Bank">
-				<Property Name="Bound" Type="Bool">false</Property>
-				<Property Name="FPBankAddress" Type="Int">0</Property>
-				<Item Name="cFP-AI-112 @4" Type="FP Device">
-					<Item Name="All" Type="FP Point"/>
-					<Item Name="Channel 0" Type="FP Point"/>
-					<Item Name="Channel 1" Type="FP Point"/>
-					<Item Name="Channel 2" Type="FP Point"/>
-					<Item Name="Channel 3" Type="FP Point"/>
-					<Item Name="Channel 4" Type="FP Point"/>
-					<Item Name="Channel 5" Type="FP Point"/>
-					<Item Name="Channel 6" Type="FP Point"/>
-					<Item Name="Channel 7" Type="FP Point"/>
-					<Item Name="Channel 8" Type="FP Point"/>
-					<Item Name="Channel 9" Type="FP Point"/>
-					<Item Name="Channel 10" Type="FP Point"/>
-					<Item Name="Channel 11" Type="FP Point"/>
-					<Item Name="Channel 12" Type="FP Point"/>
-					<Item Name="Channel 13" Type="FP Point"/>
-					<Item Name="Channel 14" Type="FP Point"/>
-					<Item Name="Channel 15" Type="FP Point"/>
-				</Item>
-				<Item Name="cFP-AO-210 @3" Type="FP Device">
-					<Item Name="All" Type="FP Point"/>
-					<Item Name="Channel 0" Type="FP Point"/>
-					<Item Name="Channel 1" Type="FP Point"/>
-					<Item Name="Channel 2" Type="FP Point"/>
-					<Item Name="Channel 3" Type="FP Point"/>
-					<Item Name="Channel 4" Type="FP Point"/>
-					<Item Name="Channel 5" Type="FP Point"/>
-					<Item Name="Channel 6" Type="FP Point"/>
-					<Item Name="Channel 7" Type="FP Point"/>
-				</Item>
-			</Item>
-		</Item>
 		<Item Name="gas_manifold_control.vi" Type="VI" URL="../gas_manifold_control.vi"/>
 		<Item Name="get_manifold_pressure.vi" Type="VI" URL="../get_manifold_pressure.vi"/>
 		<Item Name="laser_controller.vi" Type="VI" URL="../laser_controller.vi"/>

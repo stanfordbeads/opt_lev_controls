@@ -15,7 +15,7 @@ drive_voltage = 1
 
 scaled_amp = 3  # max voltage played by DAC
 
-filname = r'C:\Users\beads\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_1-600Hz_nocutsamp.txt' % (drive_elec, scaled_amp)
+filname = r'C:\Users\beads\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_1-600Hz_nocutsamp_TEST.txt' % (drive_elec, scaled_amp)
 
 
 #drive_freqs = np.linspace(1, 200, 100)
@@ -26,8 +26,8 @@ drive_freqs = np.linspace(1, 600, 100)# [41, 353, 427]
 #np.random.seed(123)
 np.random.seed()
 random_phase = True
-optimize_phase = False
-load_opt_phase = True
+optimize_phase = True
+load_opt_phase = False
 
 passes = 100#1000
 

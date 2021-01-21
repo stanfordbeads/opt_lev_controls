@@ -15,19 +15,15 @@
 		<Item Name="AG E3644A set.vi" Type="VI" URL="../../AG E3644A set.vi"/>
 		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
-		<Item Name="create_file_name_discharge (SubVI).vi" Type="VI" URL="../create_file_name_discharge (SubVI).vi"/>
 		<Item Name="daq_lib.lvlib" Type="Library" URL="../../daq_lib.lvlib"/>
 		<Item Name="discharge.vi" Type="VI" URL="../discharge.vi"/>
 		<Item Name="dual_chirp_wphase.vi" Type="VI" URL="../../misc_utils/dual_chirp_wphase.vi"/>
 		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
-		<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B Function Gen.vi"/>
-		<Item Name="initialize_instruments_discharge (SubVI).vi" Type="VI" URL="../initialize_instruments_discharge (SubVI).vi"/>
+		<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B/HP 3325B Function Gen.vi"/>
 		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
-		<Item Name="read_data (SubVI).vi" Type="VI" URL="../read_data (SubVI).vi"/>
 		<Item Name="RGA_scan_new_version.vi" Type="VI" URL="../../valve_control/RGA_scan_new_version.vi"/>
 		<Item Name="RGA_scan_new_version_2.vi" Type="VI" URL="../../valve_control/RGA_scan_new_version_2.vi"/>
-		<Item Name="save_data (SubVI).vi" Type="VI" URL="../save_data (SubVI).vi"/>
-		<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>
+		<Item Name="Tabor 5064 Control.vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 Control.vi"/>
 		<Item Name="total_valve_control.vi" Type="VI" URL="../../valve_control/total_valve_control.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
@@ -570,6 +566,7 @@
 			<Item Name="clean_up_in_loop (SubVI).vi" Type="VI" URL="../clean_up_in_loop (SubVI).vi"/>
 			<Item Name="clean_up_instruments (SubVI).vi" Type="VI" URL="../clean_up_instruments (SubVI).vi"/>
 			<Item Name="create_file_name (SubVI).vi" Type="VI" URL="../create_file_name (SubVI).vi"/>
+			<Item Name="create_file_name_discharge (SubVI).vi" Type="VI" URL="../create_file_name_discharge (SubVI).vi"/>
 			<Item Name="create_process_list (SubVI).vi" Type="VI" URL="../create_process_list (SubVI).vi"/>
 			<Item Name="create_subarray (SubVI).vi" Type="VI" URL="../create_subarray (SubVI).vi"/>
 			<Item Name="DeviceClose.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/DeviceClose.vi"/>
@@ -582,8 +579,15 @@
 			<Item Name="gate_valve_combo.vi" Type="VI" URL="../../valve_control/gate_valve_combo.vi"/>
 			<Item Name="GetMasterDeviceAddress.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/GetMasterDeviceAddress.vi"/>
 			<Item Name="HP 3325A Function Gen.vi" Type="VI" URL="../../HP 3325A Function Gen.vi"/>
+			<Item Name="HP 3325B - Set Amplitude (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Amplitude (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Frequency (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Frequency (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Offset (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Offset (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Phase (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Phase (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Signal Type (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Signal Type (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Sweep (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Sweep (SubVI).vi"/>
 			<Item Name="HP 33120A Function Gen - SIMPLE.vi" Type="VI" URL="../../HP 33120A Function Gen - SIMPLE.vi"/>
 			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
+			<Item Name="initialize_instruments_discharge (SubVI).vi" Type="VI" URL="../initialize_instruments_discharge (SubVI).vi"/>
 			<Item Name="InitSingleDevice.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/InitSingleDevice.vi"/>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -599,9 +603,11 @@
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="read_data (SubVI).vi" Type="VI" URL="../read_data (SubVI).vi"/>
 			<Item Name="read_environment (SubVI).vi" Type="VI" URL="../../read_environment (SubVI).vi"/>
 			<Item Name="RelativeMove.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Command VIs/RelativeMove.vi"/>
 			<Item Name="replace_sub_array (SubVI).vi" Type="VI" URL="../replace_sub_array (SubVI).vi"/>
+			<Item Name="save_data (SubVI).vi" Type="VI" URL="../save_data (SubVI).vi"/>
 			<Item Name="send_fpga_config_if_not_imgrid (SubVI).vi" Type="VI" URL="../send_fpga_config_if_not_imgrid (SubVI).vi"/>
 			<Item Name="set_dc_supply (SubVI).vi" Type="VI" URL="../set_dc_supply (SubVI).vi"/>
 			<Item Name="set_electrodes (SubVI).vi" Type="VI" URL="../set_electrodes (SubVI).vi"/>
@@ -614,6 +620,14 @@
 			<Item Name="Shutdown.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/Shutdown.vi"/>
 			<Item Name="single_tone_analysis.vi" Type="VI" URL="../../misc_utils/single_tone_analysis.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
+			<Item Name="Tabor 5064 - Get Channel Status (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Get Channel Status (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Amplitude (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Amplitude (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Frequency (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Frequency (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Load (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Load (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Output State (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Output State (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Sine Phase (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Sine Phase (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Setup Standard Waveforms (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Setup Standard Waveforms (SubVI).vi"/>
+			<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>
 			<Item Name="take_data_no-trig (SubVI).vi" Type="VI" URL="../take_data_no-trig (SubVI).vi"/>
 			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="../take_picture_pymba (SubVI).vi"/>
 			<Item Name="valve_state (SubVI).vi" Type="VI" URL="../../valve_control/valve_state (SubVI).vi"/>
