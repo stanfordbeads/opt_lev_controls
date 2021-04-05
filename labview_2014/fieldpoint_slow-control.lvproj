@@ -13,6 +13,8 @@
 		<Item Name="gas_manifold_control.vi" Type="VI" URL="../gas_manifold_control.vi"/>
 		<Item Name="get_manifold_pressure.vi" Type="VI" URL="../get_manifold_pressure.vi"/>
 		<Item Name="laser_controller.vi" Type="VI" URL="../laser_controller.vi"/>
+		<Item Name="Nufern_controller.vi" Type="VI" URL="../Nufern_controller.vi"/>
+		<Item Name="orbits_seed_laser_controller.vi" Type="VI" URL="../orbits_seed_laser_controller.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>

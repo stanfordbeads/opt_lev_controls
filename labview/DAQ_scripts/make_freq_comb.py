@@ -10,18 +10,22 @@ import matplotlib.pyplot as plt
 Fsamp = 5000.
 cutsamp = 0
 Npoints = 250000
-drive_elec = 1
+drive_elec = 3
 drive_voltage = 1
 
 scaled_amp = 3  # max voltage played by DAC
+scaled_amp = 10
 
-filname = r'C:\Users\beads\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_1-600Hz_nocutsamp_TEST.txt' % (drive_elec, scaled_amp)
+#filname = r'C:\Users\beads\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_1-600Hz_nocutsamp_TEST.txt' % (drive_elec, scaled_amp)
+
+filname = r'C:\Users\beads\opt_lev_controls\labview\DAQ_settings\freq_comb_elec%i_%iV_prime_freq.txt' % (drive_elec, scaled_amp)
 
 
 #drive_freqs = np.linspace(1, 200, 100)
 #drive_freqs = np.linspace(1, 3, 5)
-drive_freqs = np.linspace(1, 600, 100)# [41, 353, 427]
+#drive_freqs = np.linspace(1, 600, 100)# [41, 353, 427]
 
+drive_freqs = [5,7,9,13,17,23,29,37,43,51,57,69,71,111]
 
 #np.random.seed(123)
 np.random.seed()

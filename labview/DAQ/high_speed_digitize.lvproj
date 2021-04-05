@@ -1,6 +1,7 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="18008000">
 	<Property Name="varPersistentID:{20F572A3-5A10-4F6F-A300-4F4EB221D3E5}" Type="Ref">/My Computer/daq_lib.lvlib/synth_settings</Property>
+	<Property Name="varPersistentID:{7EEA44E1-F3CA-462B-AE9C-2C9290667F29}" Type="Ref">/My Computer/Untitled Library 1.lvlib/height shift [pixel]</Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
@@ -14,6 +15,7 @@
 		<Item Name="daq_lib.lvlib" Type="Library" URL="../daq_lib.lvlib"/>
 		<Item Name="high_speed_digitizer.vi" Type="VI" URL="../high_speed_digitizer.vi"/>
 		<Item Name="high_speed_digitizer_ao.vi" Type="VI" URL="../high_speed_digitizer_ao.vi"/>
+		<Item Name="Untitled Library 1.lvlib" Type="Library" URL="../../../../Documents/AlexF/Untitled Library 1.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array Size(s)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array Size(s)__ogtk.vi"/>
