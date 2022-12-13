@@ -1,0 +1,14 @@
+README.md
+setup.py
+Pypyueye.egg-info/PKG-INFO
+Pypyueye.egg-info/SOURCES.txt
+Pypyueye.egg-info/dependency_links.txt
+Pypyueye.egg-info/requires.txt
+Pypyueye.egg-info/top_level.txt
+pypyueye/__init__.py
+pypyueye/camera.py
+pypyueye/detectors.py
+pypyueye/gui.py
+pypyueye/main.py
+pypyueye/threads.py
+pypyueye/utils.py

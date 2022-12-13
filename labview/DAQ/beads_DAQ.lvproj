@@ -12,12 +12,10 @@
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
 		<Item Name="add_test.vi" Type="VI" URL="../../valve_control/add_test.vi"/>
-		<Item Name="AG E3644A set.vi" Type="VI" URL="../../AG E3644A set.vi"/>
 		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
 		<Item Name="daq_lib.lvlib" Type="Library" URL="../../daq_lib.lvlib"/>
 		<Item Name="discharge.vi" Type="VI" URL="../discharge.vi"/>
-		<Item Name="dual_chirp_wphase.vi" Type="VI" URL="../../misc_utils/dual_chirp_wphase.vi"/>
 		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
 		<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B/HP 3325B Function Gen.vi"/>
 		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
@@ -251,6 +249,7 @@
 				<Item Name="DAQmx Timing (Use Waveform).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing (Use Waveform).vi"/>
 				<Item Name="DAQmx Timing.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/timing.llb/DAQmx Timing.vi"/>
 				<Item Name="DAQmx Trigger.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/trigger.llb/DAQmx Trigger.vi"/>
+				<Item Name="DAQmx Wait Until Done.vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/configure/task.llb/DAQmx Wait Until Done.vi"/>
 				<Item Name="DAQmx Write (Analog 1D DBL 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D DBL 1Chan NSamp).vi"/>
 				<Item Name="DAQmx Write (Analog 1D DBL NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D DBL NChan 1Samp).vi"/>
 				<Item Name="DAQmx Write (Analog 1D Wfm NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/write.llb/DAQmx Write (Analog 1D Wfm NChan 1Samp).vi"/>
@@ -483,7 +482,6 @@
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="NI_Gmath.lvlib" Type="Library" URL="/&lt;vilib&gt;/gmath/NI_Gmath.lvlib"/>
 				<Item Name="NI_MABase.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MABase.lvlib"/>
-				<Item Name="NI_MAPro.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MAPro.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="Not an HDF5 Refnum Constant.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/Not an HDF5 Refnum Constant.vi"/>
 				<Item Name="Not an HDF5 Refnum.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/Not an HDF5 Refnum.vi"/>
@@ -576,16 +574,15 @@
 			<Item Name="encode_string (SubVI).vi" Type="VI" URL="../encode_string (SubVI).vi"/>
 			<Item Name="FPGA Timekeeper.lvlib" Type="Library" URL="../../fpga/FPGA Timekeeper 1.1b0/FPGA Timekeeper.lvlib"/>
 			<Item Name="gate_valve1.vi" Type="VI" URL="../../valve_control/gate_valve1.vi"/>
-			<Item Name="gate_valve_combo.vi" Type="VI" URL="../../valve_control/gate_valve_combo.vi"/>
+			<Item Name="get_pressure_gauge_readings (SubVI).vi" Type="VI" URL="../../valve_control/get_pressure_gauge_readings (SubVI).vi"/>
+			<Item Name="get_valve_state (SubVI).vi" Type="VI" URL="../../valve_control/get_valve_state (SubVI).vi"/>
 			<Item Name="GetMasterDeviceAddress.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/GetMasterDeviceAddress.vi"/>
-			<Item Name="HP 3325A Function Gen.vi" Type="VI" URL="../../HP 3325A Function Gen.vi"/>
 			<Item Name="HP 3325B - Set Amplitude (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Amplitude (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Frequency (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Frequency (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Offset (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Offset (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Phase (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Phase (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Signal Type (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Signal Type (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Sweep (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Sweep (SubVI).vi"/>
-			<Item Name="HP 33120A Function Gen - SIMPLE.vi" Type="VI" URL="../../HP 33120A Function Gen - SIMPLE.vi"/>
 			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
 			<Item Name="initialize_instruments_discharge (SubVI).vi" Type="VI" URL="../initialize_instruments_discharge (SubVI).vi"/>
 			<Item Name="InitSingleDevice.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/InitSingleDevice.vi"/>
@@ -612,13 +609,13 @@
 			<Item Name="set_dc_supply (SubVI).vi" Type="VI" URL="../set_dc_supply (SubVI).vi"/>
 			<Item Name="set_electrodes (SubVI).vi" Type="VI" URL="../set_electrodes (SubVI).vi"/>
 			<Item Name="set_electrodes_init (SubVI).vi" Type="VI" URL="../set_electrodes_init (SubVI).vi"/>
+			<Item Name="set_gate_valve_state (SubVI).vi" Type="VI" URL="../../valve_control/set_gate_valve_state (SubVI).vi"/>
 			<Item Name="set_instruments (SubVI).vi" Type="VI" URL="../set_instruments (SubVI).vi"/>
 			<Item Name="set_stage (SubVI).vi" Type="VI" URL="../set_stage (SubVI).vi"/>
 			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="../set_stage_and_electrode_init (SubVI).vi"/>
 			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="../set_stage_init (SubVI).vi"/>
 			<Item Name="setup_fpga_daq (SubVI).vi" Type="VI" URL="../setup_fpga_daq (SubVI).vi"/>
 			<Item Name="Shutdown.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/Shutdown.vi"/>
-			<Item Name="single_tone_analysis.vi" Type="VI" URL="../../misc_utils/single_tone_analysis.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
 			<Item Name="Tabor 5064 - Get Channel Status (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Get Channel Status (SubVI).vi"/>
 			<Item Name="Tabor 5064 - Set Channel Amplitude (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Amplitude (SubVI).vi"/>
@@ -630,7 +627,6 @@
 			<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>
 			<Item Name="take_data_no-trig (SubVI).vi" Type="VI" URL="../take_data_no-trig (SubVI).vi"/>
 			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="../take_picture_pymba (SubVI).vi"/>
-			<Item Name="valve_state (SubVI).vi" Type="VI" URL="../../valve_control/valve_state (SubVI).vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>

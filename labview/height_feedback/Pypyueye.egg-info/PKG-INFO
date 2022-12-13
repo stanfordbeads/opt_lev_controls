@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: Pypyueye
+Version: 1.0
+Summary: Convenience wrapper around pyueye.
+Home-page: UNKNOWN
+Author: Gaby Launay
+Author-email: gaby.launay@tutanota.com
+License: GPLv3
+Description: UNKNOWN
+Keywords: ueye camera
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: GPLv3 License
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
