@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="18008000">
+<Project Type="Project" LVVersion="22308000">
 	<Property Name="varPersistentID:{43931177-FEDD-4B8A-A493-36616CD191B1}" Type="Ref">/My Computer/daq_lib.lvlib/synth_settings</Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
@@ -11,25 +11,24 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="add_test.vi" Type="VI" URL="../../valve_control/add_test.vi"/>
 		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
 		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
 		<Item Name="daq_lib.lvlib" Type="Library" URL="../../daq_lib.lvlib"/>
-		<Item Name="discharge.vi" Type="VI" URL="../discharge.vi"/>
 		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
-		<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B/HP 3325B Function Gen.vi"/>
-		<Item Name="move_stage.vi" Type="VI" URL="../../agilis/move_stage/move_stage.vi"/>
-		<Item Name="RGA_scan_new_version.vi" Type="VI" URL="../../valve_control/RGA_scan_new_version.vi"/>
-		<Item Name="RGA_scan_new_version_2.vi" Type="VI" URL="../../valve_control/RGA_scan_new_version_2.vi"/>
+		<Item Name="IR Laser Diode Controller.vi" Type="VI" URL="../../LASER/IR Laser Diode Controller.vi"/>
 		<Item Name="Tabor 5064 Control.vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 Control.vi"/>
 		<Item Name="total_valve_control.vi" Type="VI" URL="../../valve_control/total_valve_control.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="AbortMotion.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/AbortMotion.vi"/>
-				<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="/&lt;instrlib&gt;/Agilent E364X Series/Agilent E364X Series.lvlib"/>
-				<Item Name="CmdLib.dll" Type="Document" URL="/&lt;instrlib&gt;/Model 8742/CmdLib.dll"/>
+				<Item Name="DeviceClose.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/DeviceClose.vi"/>
+				<Item Name="DeviceOpen.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/DeviceOpen.vi"/>
+				<Item Name="GetMasterDeviceAddress.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/GetMasterDeviceAddress.vi"/>
 				<Item Name="GetPosition.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/GetPosition.vi"/>
+				<Item Name="InitSingleDevice.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/InitSingleDevice.vi"/>
+				<Item Name="RelativeMove.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/RelativeMove.vi"/>
 				<Item Name="SetZeroPosition.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/SetZeroPosition.vi"/>
+				<Item Name="Shutdown.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Device VIs/Shutdown.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Array Size(s)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Array Size(s)__ogtk.vi"/>
@@ -62,14 +61,24 @@
 				<Item Name="Get Array Element TDEnum__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Array Element TDEnum__ogtk.vi"/>
 				<Item Name="Get Header from TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Header from TD__ogtk.vi"/>
 				<Item Name="Get PString__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get PString__ogtk.vi"/>
+				<Item Name="Get Refnum Type Enum from Data__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Refnum Type Enum from Data__ogtk.vi"/>
+				<Item Name="Get Refnum Type Enum from TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Refnum Type Enum from TD__ogtk.vi"/>
 				<Item Name="Get Strings from Enum TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Strings from Enum TD__ogtk.vi"/>
 				<Item Name="Get Strings from Enum__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Strings from Enum__ogtk.vi"/>
 				<Item Name="Get TDEnum from Data__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get TDEnum from Data__ogtk.vi"/>
+				<Item Name="Get Waveform Type Enum from Data__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Waveform Type Enum from Data__ogtk.vi"/>
+				<Item Name="Get Waveform Type Enum from TD__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Get Waveform Type Enum from TD__ogtk.vi"/>
+				<Item Name="Refnum Subtype Enum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Refnum Subtype Enum__ogtk.ctl"/>
+				<Item Name="Resolve Timestamp Format__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Resolve Timestamp Format__ogtk.vi"/>
 				<Item Name="Strip Units__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Strip Units__ogtk.vi"/>
+				<Item Name="Trim Whitespace (String Array)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace (String Array)__ogtk.vi"/>
+				<Item Name="Trim Whitespace (String)__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace (String)__ogtk.vi"/>
+				<Item Name="Trim Whitespace__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/string/string.llb/Trim Whitespace__ogtk.vi"/>
 				<Item Name="Type Descriptor Enumeration__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor Enumeration__ogtk.ctl"/>
 				<Item Name="Type Descriptor Header__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor Header__ogtk.ctl"/>
 				<Item Name="Type Descriptor__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Type Descriptor__ogtk.ctl"/>
 				<Item Name="Variant to Header Info__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Variant to Header Info__ogtk.vi"/>
+				<Item Name="Waveform Subtype Enum__ogtk.ctl" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Waveform Subtype Enum__ogtk.ctl"/>
 			</Item>
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="ApplyFloatFormat.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/ApplyFloatFormat.vi"/>
@@ -147,6 +156,7 @@
 				<Item Name="DAQmx Create Channel (CO-Pulse Generation-Time).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (CO-Pulse Generation-Time).vi"/>
 				<Item Name="DAQmx Create Channel (DI-Digital Input).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (DI-Digital Input).vi"/>
 				<Item Name="DAQmx Create Channel (DO-Digital Output).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (DO-Digital Output).vi"/>
+				<Item Name="DAQmx Create Channel (Power).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (Power).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Acceleration-Accelerometer).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Acceleration-Accelerometer).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Bridge).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Bridge).vi"/>
 				<Item Name="DAQmx Create Channel (TEDS-AI-Current-Basic).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/create/channels.llb/DAQmx Create Channel (TEDS-AI-Current-Basic).vi"/>
@@ -217,6 +227,11 @@
 				<Item Name="DAQmx Read (Digital Wfm 1Chan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Digital Wfm 1Chan 1Samp).vi"/>
 				<Item Name="DAQmx Read (Digital Wfm 1Chan NSamp Duration).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Digital Wfm 1Chan NSamp Duration).vi"/>
 				<Item Name="DAQmx Read (Digital Wfm 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Digital Wfm 1Chan NSamp).vi"/>
+				<Item Name="DAQmx Read (Power 1D DBL 1Chan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Power 1D DBL 1Chan NSamp).vi"/>
+				<Item Name="DAQmx Read (Power 1D DBL NChan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Power 1D DBL NChan 1Samp).vi"/>
+				<Item Name="DAQmx Read (Power 2D DBL NChan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Power 2D DBL NChan NSamp).vi"/>
+				<Item Name="DAQmx Read (Power 2D I16 NChan NSamp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Power 2D I16 NChan NSamp).vi"/>
+				<Item Name="DAQmx Read (Power DBL 1Chan 1Samp).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Power DBL 1Chan 1Samp).vi"/>
 				<Item Name="DAQmx Read (Raw 1D I8).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Raw 1D I8).vi"/>
 				<Item Name="DAQmx Read (Raw 1D I16).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Raw 1D I16).vi"/>
 				<Item Name="DAQmx Read (Raw 1D I32).vi" Type="VI" URL="/&lt;vilib&gt;/DAQmx/read.llb/DAQmx Read (Raw 1D I32).vi"/>
@@ -306,16 +321,13 @@
 				<Item Name="DWDT Uncompress Digital.vi" Type="VI" URL="/&lt;vilib&gt;/Waveform/DWDTOps.llb/DWDT Uncompress Digital.vi"/>
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="Error Code Database.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Code Database.vi"/>
-				<Item Name="ErrorNameCache.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/private/ErrorNameCache.vi"/>
 				<Item Name="ErrWarn.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/ErrWarn.ctl"/>
 				<Item Name="eventvkey.ctl" Type="VI" URL="/&lt;vilib&gt;/event_ctls.llb/eventvkey.ctl"/>
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="Find First Error.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find First Error.vi"/>
 				<Item Name="Find Tag.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Find Tag.vi"/>
-				<Item Name="Flatten Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/Flatten Error Stack.vi"/>
 				<Item Name="Format Attributes as Table.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/Format Attributes as Table.vi"/>
 				<Item Name="Format Message String.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Format Message String.vi"/>
-				<Item Name="From HDF5 Ref.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/From HDF5 Ref.vi"/>
 				<Item Name="FxpSim.dll" Type="Document" URL="/&lt;vilib&gt;/rvi/FXPMathLib/sim/FxpSim.dll"/>
 				<Item Name="General Error Handler Core CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler Core CORE.vi"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
@@ -326,7 +338,8 @@
 				<Item Name="GetOwningH5FileRefnum.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/GetOwningH5FileRefnum.vi"/>
 				<Item Name="GetRTHostConnectedProp.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/GetRTHostConnectedProp.vi"/>
 				<Item Name="GetVariantDims.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/xnodehelpers/GetVariantDims.vi"/>
-				<Item Name="H5_ih_info_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/H5_ih_info_t.ctl"/>
+				<Item Name="H5_index_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/H5_index_t.ctl"/>
+				<Item Name="H5_iter_order_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/H5_iter_order_t.ctl"/>
 				<Item Name="H5Aclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aclose.vi"/>
 				<Item Name="H5Acreate.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Acreate.vi"/>
 				<Item Name="H5Adelete.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Adelete.vi"/>
@@ -334,6 +347,8 @@
 				<Item Name="H5Aget_num_attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aget_num_attrs.vi"/>
 				<Item Name="H5Aget_space.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aget_space.vi"/>
 				<Item Name="H5Aget_type.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aget_type.vi"/>
+				<Item Name="H5Aopen_by_idx.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aopen_by_idx.vi"/>
+				<Item Name="H5Aopen_by_name.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aopen_by_name.vi"/>
 				<Item Name="H5Aopen_idx.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aopen_idx.vi"/>
 				<Item Name="H5Aopen_name.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aopen_name.vi"/>
 				<Item Name="H5Aread (Variant).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/H5Aread (Variant).vi"/>
@@ -347,12 +362,6 @@
 				<Item Name="H5Dwrite (Variant).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataset.llb/H5Dwrite (Variant).vi"/>
 				<Item Name="H5E_type_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5E_type_t.ctl"/>
 				<Item Name="H5Eget_msg.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5Eget_msg.vi"/>
-				<Item Name="H5Epush.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5Epush.vi"/>
-				<Item Name="H5Epush_enum_enum.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5Epush_enum_enum.vi"/>
-				<Item Name="H5Epush_enum_hid.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5Epush_enum_hid.vi"/>
-				<Item Name="H5Epush_hid_enum.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5Epush_hid_enum.vi"/>
-				<Item Name="H5Epush_hid_hid.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/H5Epush_hid_hid.vi"/>
-				<Item Name="H5ErrorHandler.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/H5ErrorHandler.vi"/>
 				<Item Name="H5F_obj_types_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5F_obj_types_t.ctl"/>
 				<Item Name="H5Fclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fclose.vi"/>
 				<Item Name="H5Fcreate.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fcreate.vi"/>
@@ -360,12 +369,16 @@
 				<Item Name="H5Fget_obj_count.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fget_obj_count.vi"/>
 				<Item Name="H5Fget_obj_ids.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fget_obj_ids.vi"/>
 				<Item Name="H5Fopen.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/H5Fopen.vi"/>
+				<Item Name="H5G_info_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5G_info_t.ctl"/>
 				<Item Name="H5G_obj_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5G_obj_t.ctl"/>
+				<Item Name="H5G_storage_type_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5G_storage_type_t.ctl"/>
 				<Item Name="H5Gclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gclose.vi"/>
 				<Item Name="H5Gcreate.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gcreate.vi"/>
+				<Item Name="H5Gget_info.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gget_info.vi"/>
 				<Item Name="H5Gget_num_objs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gget_num_objs.vi"/>
 				<Item Name="H5Gget_objname_by_idx.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gget_objname_by_idx.vi"/>
 				<Item Name="H5Gget_objtype_by_idx.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gget_objtype_by_idx.vi"/>
+				<Item Name="H5Ginfo2LVH5Ginfo.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/private/H5Ginfo2LVH5Ginfo.vi"/>
 				<Item Name="H5Gopen.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gopen.vi"/>
 				<Item Name="H5Gunlink.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/H5Gunlink.vi"/>
 				<Item Name="h5helper.dll" Type="Document" URL="/&lt;vilib&gt;/UPVI/lvhdf5/h5helper.dll"/>
@@ -375,10 +388,14 @@
 				<Item Name="H5Iget_ref.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/H5Iget_ref.vi"/>
 				<Item Name="H5Iget_type.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/H5Iget_type.vi"/>
 				<Item Name="H5Iinc_ref.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/H5Iinc_ref.vi"/>
-				<Item Name="H5O_hdr_info_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5O_hdr_info_t.ctl"/>
+				<Item Name="H5Ldelete.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/link.llb/H5Ldelete.vi"/>
+				<Item Name="H5Lget_name_by_idx.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/link.llb/H5Lget_name_by_idx.vi"/>
 				<Item Name="H5O_info_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5O_info_t.ctl"/>
+				<Item Name="H5O_token_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5O_token_t.ctl"/>
 				<Item Name="H5O_type_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5O_type_t.ctl"/>
 				<Item Name="H5ObjInfoToLVH5ObjInfo.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/private/H5ObjInfoToLVH5ObjInfo.vi"/>
+				<Item Name="H5Oget_info.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5Oget_info.vi"/>
+				<Item Name="H5Oget_info_by_idx.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5Oget_info_by_idx.vi"/>
 				<Item Name="H5Oget_info_by_name.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/H5Oget_info_by_name.vi"/>
 				<Item Name="H5open.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/H5open.vi"/>
 				<Item Name="H5Pclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/property.llb/H5Pclose.vi"/>
@@ -387,7 +404,11 @@
 				<Item Name="H5Pset_deflate.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/property.llb/H5Pset_deflate.vi"/>
 				<Item Name="H5Pset_layout.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/property.llb/H5Pset_layout.vi"/>
 				<Item Name="H5R Dataset Region Ref.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/reference.llb/H5R Dataset Region Ref.ctl"/>
+				<Item Name="H5R Dataset Region Ref.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/UPVI/lvhdf5/reference.llb/LVH5Rregion/H5R Dataset Region Ref.lvclass"/>
 				<Item Name="H5R Object Ref.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/reference.llb/H5R Object Ref.ctl"/>
+				<Item Name="H5R Object Ref.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/UPVI/lvhdf5/reference.llb/LVH5Robject/H5R Object Ref.lvclass"/>
+				<Item Name="H5R Ref.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/UPVI/lvhdf5/reference.llb/H5R Ref.lvclass"/>
+				<Item Name="H5R_type_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/reference.llb/H5R_type_t.ctl"/>
 				<Item Name="H5S_class_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/H5S_class_t.ctl"/>
 				<Item Name="H5S_seloper_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/H5S_seloper_t.ctl"/>
 				<Item Name="H5Sclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/H5Sclose.vi"/>
@@ -395,6 +416,7 @@
 				<Item Name="H5Screate_simple.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/H5Screate_simple.vi"/>
 				<Item Name="H5Sget_simple_extent_ndims.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/H5Sget_simple_extent_ndims.vi"/>
 				<Item Name="H5Sselect_hyperslab.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/H5Sselect_hyperslab.vi"/>
+				<Item Name="H5T_cset_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5T_cset_t.ctl"/>
 				<Item Name="H5T_sign_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5T_sign_t.ctl"/>
 				<Item Name="H5Tclose.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tclose.vi"/>
 				<Item Name="H5Tcommit.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tcommit.vi"/>
@@ -420,15 +442,14 @@
 				<Item Name="H5Tget_tag.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tget_tag.vi"/>
 				<Item Name="H5Tinsert.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tinsert.vi"/>
 				<Item Name="H5Topen.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Topen.vi"/>
+				<Item Name="H5Tset_cset.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tset_cset.vi"/>
 				<Item Name="H5Tset_fields.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tset_fields.vi"/>
 				<Item Name="H5Tset_precision.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tset_precision.vi"/>
 				<Item Name="H5Tset_size.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tset_size.vi"/>
 				<Item Name="H5Tset_tag.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tset_tag.vi"/>
 				<Item Name="H5Tvlen_create.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/H5Tvlen_create.vi"/>
-				<Item Name="HDF5 Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/HDF5 Error Cluster From Error Code.vi"/>
-				<Item Name="HDF5 Error Cluster.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/HDF5 Error Cluster.ctl"/>
 				<Item Name="HDF5 Ref.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/HDF5 Ref.ctl"/>
-				<Item Name="HDF5 to LVHDF5 Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/HDF5 to LVHDF5 Error Stack.vi"/>
+				<Item Name="HDF5 Ref.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/HDF5 Ref.lvclass"/>
 				<Item Name="hdf5.dll" Type="Document" URL="/&lt;vilib&gt;/UPVI/lvhdf5/hdf5.dll"/>
 				<Item Name="imagedata.ctl" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/imagedata.ctl"/>
 				<Item Name="List Group Objects (recursive).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/List Group Objects (recursive).vi"/>
@@ -448,28 +469,27 @@
 				<Item Name="LVH5D Operation.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataset.llb/LVH5D Operation.ctl"/>
 				<Item Name="LVH5EMajorID.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5EMajorID.ctl"/>
 				<Item Name="LVH5EMinorID.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5EMinorID.ctl"/>
+				<Item Name="LVH5EPushAndErrCluster.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5EPushAndErrCluster.vi"/>
 				<Item Name="LVH5F Operation.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/LVH5F Operation.ctl"/>
+				<Item Name="LVH5G_info_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/group.llb/LVH5G_info_t.ctl"/>
 				<Item Name="LVH5LoadSymbol.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/library.llb/LVH5LoadSymbol.vi"/>
 				<Item Name="LVH5O_info_t.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/object.llb/LVH5O_info_t.ctl"/>
 				<Item Name="LVH5P Dset Compression and Chunking.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/property.llb/LVH5P Dset Compression and Chunking.vi"/>
 				<Item Name="LVH5PClassId.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/property.llb/LVH5PClassId.ctl"/>
 				<Item Name="LVH5Screate_matching_space (Variant).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/dataspace.llb/LVH5Screate_matching_space (Variant).vi"/>
+				<Item Name="LVH5StringParameters.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/LVH5StringParameters.ctl"/>
 				<Item Name="LVH5TCloseTypeCache.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/LVH5TCloseTypeCache.vi"/>
 				<Item Name="LVH5Tcreate_dataset_type (Variant).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/LVH5Tcreate_dataset_type (Variant).vi"/>
 				<Item Name="LVH5Tcreate_element_type (Variant).vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/LVH5Tcreate_element_type (Variant).vi"/>
 				<Item Name="LVH5TGetLVType.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/LVH5TGetLVType.vi"/>
-				<Item Name="LVH5TGetMajorError.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5TGetMajorError.vi"/>
-				<Item Name="LVH5TGetMinorError.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5TGetMinorError.vi"/>
 				<Item Name="LVH5TGetPredefinedType.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/LVH5TGetPredefinedType.vi"/>
-				<Item Name="LVH5TLookupMajorError.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5TLookupMajorError.vi"/>
-				<Item Name="LVH5TLookupMinorError.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5TLookupMinorError.vi"/>
-				<Item Name="LVH5TMinorErrorEquals.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVH5TMinorErrorEquals.vi"/>
 				<Item Name="LVHDF5 Error Cluster.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/LVHDF5 Error Cluster.ctl"/>
 				<Item Name="LVHDF5 PQ Typename.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/LVHDF5 PQ Typename.vi"/>
 				<Item Name="LVNumericRepresentation.ctl" Type="VI" URL="/&lt;vilib&gt;/numeric/LVNumericRepresentation.ctl"/>
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
 				<Item Name="LVRowAndColumnTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRowAndColumnTypeDef.ctl"/>
 				<Item Name="lvSimController.dll" Type="Document" URL="/&lt;vilib&gt;/rvi/Simulation/lvSimController.dll"/>
+				<Item Name="LVSWMR Type.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/LVSWMR Type.ctl"/>
 				<Item Name="LVTypeElement.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/LVTypeElement.ctl"/>
 				<Item Name="LVTypeTable.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/LVTypeTable.ctl"/>
 				<Item Name="Make Timestamp Compound.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Make Timestamp Compound.vi"/>
@@ -478,9 +498,8 @@
 				<Item Name="MakeComplexCluster.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/MakeComplexCluster.vi"/>
 				<Item Name="MakeUnitArrayType.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/private/MakeUnitArrayType.vi"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
-				<Item Name="NI_AALPro.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALPro.lvlib"/>
+				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
-				<Item Name="NI_Gmath.lvlib" Type="Library" URL="/&lt;vilib&gt;/gmath/NI_Gmath.lvlib"/>
 				<Item Name="NI_MABase.lvlib" Type="Library" URL="/&lt;vilib&gt;/measure/NI_MABase.lvlib"/>
 				<Item Name="NI_PackedLibraryUtility.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/LVLibp/NI_PackedLibraryUtility.lvlib"/>
 				<Item Name="Not an HDF5 Refnum Constant.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/identifier.llb/Not an HDF5 Refnum Constant.vi"/>
@@ -498,16 +517,11 @@
 				<Item Name="Parse Dataset Path.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/Parse Dataset Path.vi"/>
 				<Item Name="Populate HDF5 Tree.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/Populate HDF5 Tree.vi"/>
 				<Item Name="Read All Attributes.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/attribute.llb/Read All Attributes.vi"/>
-				<Item Name="Read Delimited Spreadsheet (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (DBL).vi"/>
-				<Item Name="Read Delimited Spreadsheet (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (I64).vi"/>
-				<Item Name="Read Delimited Spreadsheet (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet (string).vi"/>
-				<Item Name="Read Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Delimited Spreadsheet.vi"/>
 				<Item Name="Read File+ (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read File+ (string).vi"/>
 				<Item Name="Read From Spreadsheet File (DBL).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (DBL).vi"/>
 				<Item Name="Read From Spreadsheet File (I64).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (I64).vi"/>
 				<Item Name="Read From Spreadsheet File (string).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File (string).vi"/>
 				<Item Name="Read From Spreadsheet File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read From Spreadsheet File.vi"/>
-				<Item Name="Read Lines From File (with error IO).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Lines From File (with error IO).vi"/>
 				<Item Name="Read Lines From File.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Read Lines From File.vi"/>
 				<Item Name="Read LV Type Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Read LV Type Attrs.vi"/>
 				<Item Name="Recover Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/Recover Error Stack.vi"/>
@@ -520,6 +534,10 @@
 				<Item Name="Select HDF5 Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/Select HDF5 Dialog.vi"/>
 				<Item Name="Select HDF5 Dlg Resize.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/Select HDF5 Dlg Resize.vi"/>
 				<Item Name="Set Bold Text.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set Bold Text.vi"/>
+				<Item Name="Set Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Busy.vi"/>
+				<Item Name="Set Cursor (Cursor ID).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Cursor ID).vi"/>
+				<Item Name="Set Cursor (Icon Pict).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Icon Pict).vi"/>
+				<Item Name="Set Cursor.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor.vi"/>
 				<Item Name="Set String Value.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Set String Value.vi"/>
 				<Item Name="SetTDName.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/SetTDName.vi"/>
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -535,61 +553,51 @@
 				<Item Name="TDToVariant.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/TDToVariant.vi"/>
 				<Item Name="Three Button Dialog CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog CORE.vi"/>
 				<Item Name="Three Button Dialog.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Three Button Dialog.vi"/>
-				<Item Name="To HDF5 Ref.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/common.llb/To HDF5 Ref.vi"/>
 				<Item Name="TreeIcons.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/TreeIcons.ctl"/>
 				<Item Name="TreeIconsEnum.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/TreeIconsEnum.ctl"/>
+				<Item Name="Trim Whitespace One-Sided.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace One-Sided.vi"/>
 				<Item Name="Trim Whitespace.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace.vi"/>
 				<Item Name="Try Open LV Type.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Try Open LV Type.vi"/>
 				<Item Name="Type Cache.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Type Cache.vi"/>
 				<Item Name="Unflatten Error Stack.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/error.llb/Unflatten Error Stack.vi"/>
+				<Item Name="Unset Busy.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Unset Busy.vi"/>
 				<Item Name="Update HDF5 Tree Group Icons.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/utility.llb/private/Update HDF5 Tree Group Icons.vi"/>
-				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
 				<Item Name="VISA Open Access Mode.ctl" Type="VI" URL="/&lt;vilib&gt;/Instr/_visa.llb/VISA Open Access Mode.ctl"/>
 				<Item Name="whitespace.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/whitespace.ctl"/>
 				<Item Name="Write LV Compound Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Write LV Compound Attrs.vi"/>
 				<Item Name="Write LV Type Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Write LV Type Attrs.vi"/>
 			</Item>
-			<Item Name="AG-UC2-UC8_Close.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Close.vi"/>
-			<Item Name="AG-UC2-UC8_Open.vi" Type="VI" URL="../../agilis/move_stage/AG-UC2-UC8_Open.vi"/>
 			<Item Name="Agilent E364X Series Output Single Channel DC Volts.vi" Type="VI" URL="../../e364x/Agilent E364X Series/Examples/Agilent E364X Series Output Single Channel DC Volts.vi"/>
-			<Item Name="AgilisCmdLib.dll" Type="Document" URL="../../../../../../Program Files/Newport/Piezo Motion Control/Newport AG-UC2-UC8 Applet/Samples/LabVIEW 2009/AgilisCmdLib.dll"/>
+			<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="../../e364x/Agilent E364X Series/Agilent E364X Series.lvlib"/>
 			<Item Name="arange (SubVI).vi" Type="VI" URL="../arange (SubVI).vi"/>
 			<Item Name="build_config_trig (SubVI).vi" Type="VI" URL="../build_config_trig (SubVI).vi"/>
 			<Item Name="check_folder (SubVI).vi" Type="VI" URL="../check_folder (SubVI).vi"/>
 			<Item Name="check_folder_no_prompt (SubVI).vi" Type="VI" URL="../check_folder_no_prompt (SubVI).vi"/>
 			<Item Name="check_if_should_flash (SubVI).vi" Type="VI" URL="../check_if_should_flash (SubVI).vi"/>
-			<Item Name="check_valve_status.vi" Type="VI" URL="../../valve_control/check_valve_status.vi"/>
-			<Item Name="ChooseCorrectInstrument.vi" Type="VI" URL="../../agilis/move_stage/ChooseCorrectInstrument.vi"/>
 			<Item Name="clean_up_data_tasks (SubVI).vi" Type="VI" URL="../clean_up_data_tasks (SubVI).vi"/>
 			<Item Name="clean_up_in_loop (SubVI).vi" Type="VI" URL="../clean_up_in_loop (SubVI).vi"/>
 			<Item Name="clean_up_instruments (SubVI).vi" Type="VI" URL="../clean_up_instruments (SubVI).vi"/>
+			<Item Name="CmdLib.dll" Type="Document" URL="../../../../../../Program Files (x86)/New Focus/New Focus Picomotor Application/Samples/LabVIEW/Model 8742/LabVIEW 2009/CmdLib.dll"/>
 			<Item Name="create_file_name (SubVI).vi" Type="VI" URL="../create_file_name (SubVI).vi"/>
-			<Item Name="create_file_name_discharge (SubVI).vi" Type="VI" URL="../create_file_name_discharge (SubVI).vi"/>
 			<Item Name="create_process_list (SubVI).vi" Type="VI" URL="../create_process_list (SubVI).vi"/>
 			<Item Name="create_subarray (SubVI).vi" Type="VI" URL="../create_subarray (SubVI).vi"/>
-			<Item Name="DeviceClose.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/DeviceClose.vi"/>
-			<Item Name="DeviceOpen.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/DeviceOpen.vi"/>
 			<Item Name="display_environ (SubVI).vi" Type="VI" URL="../../valve_control/display_environ (SubVI).vi"/>
 			<Item Name="drive dual picomotor zigzag (SubVI).vi" Type="VI" URL="../../picomotor/drive dual picomotor zigzag (SubVI).vi"/>
 			<Item Name="encode_string (SubVI).vi" Type="VI" URL="../encode_string (SubVI).vi"/>
 			<Item Name="FPGA Timekeeper.lvlib" Type="Library" URL="../../fpga/FPGA Timekeeper 1.1b0/FPGA Timekeeper.lvlib"/>
-			<Item Name="gate_valve1.vi" Type="VI" URL="../../valve_control/gate_valve1.vi"/>
 			<Item Name="get_pressure_gauge_readings (SubVI).vi" Type="VI" URL="../../valve_control/get_pressure_gauge_readings (SubVI).vi"/>
 			<Item Name="get_valve_state (SubVI).vi" Type="VI" URL="../../valve_control/get_valve_state (SubVI).vi"/>
-			<Item Name="GetMasterDeviceAddress.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/GetMasterDeviceAddress.vi"/>
 			<Item Name="HP 3325B - Set Amplitude (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Amplitude (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Frequency (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Frequency (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Offset (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Offset (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Phase (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Phase (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Signal Type (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Signal Type (SubVI).vi"/>
 			<Item Name="HP 3325B - Set Sweep (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Sweep (SubVI).vi"/>
+			<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B/HP 3325B Function Gen.vi"/>
 			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
-			<Item Name="initialize_instruments_discharge (SubVI).vi" Type="VI" URL="../initialize_instruments_discharge (SubVI).vi"/>
-			<Item Name="InitSingleDevice.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/InitSingleDevice.vi"/>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="leak_valve_analog.vi" Type="VI" URL="../../valve_control/leak_valve_analog.vi"/>
 			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
 			<Item Name="lvimptsl.dll" Type="Document" URL="lvimptsl.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -602,7 +610,6 @@
 			</Item>
 			<Item Name="read_data (SubVI).vi" Type="VI" URL="../read_data (SubVI).vi"/>
 			<Item Name="read_environment (SubVI).vi" Type="VI" URL="../../read_environment (SubVI).vi"/>
-			<Item Name="RelativeMove.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Command VIs/RelativeMove.vi"/>
 			<Item Name="replace_sub_array (SubVI).vi" Type="VI" URL="../replace_sub_array (SubVI).vi"/>
 			<Item Name="save_data (SubVI).vi" Type="VI" URL="../save_data (SubVI).vi"/>
 			<Item Name="send_fpga_config_if_not_imgrid (SubVI).vi" Type="VI" URL="../send_fpga_config_if_not_imgrid (SubVI).vi"/>
@@ -614,8 +621,8 @@
 			<Item Name="set_stage (SubVI).vi" Type="VI" URL="../set_stage (SubVI).vi"/>
 			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="../set_stage_and_electrode_init (SubVI).vi"/>
 			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="../set_stage_init (SubVI).vi"/>
+			<Item Name="set_valve_dgitial.vi" Type="VI" URL="../../valve_control/set_valve_dgitial.vi"/>
 			<Item Name="setup_fpga_daq (SubVI).vi" Type="VI" URL="../setup_fpga_daq (SubVI).vi"/>
-			<Item Name="Shutdown.vi" Type="VI" URL="../../picomotor/Model 8742/LabVIEW 2009/Device VIs/Shutdown.vi"/>
 			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
 			<Item Name="Tabor 5064 - Get Channel Status (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Get Channel Status (SubVI).vi"/>
 			<Item Name="Tabor 5064 - Set Channel Amplitude (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Amplitude (SubVI).vi"/>
@@ -627,6 +634,71 @@
 			<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>
 			<Item Name="take_data_no-trig (SubVI).vi" Type="VI" URL="../take_data_no-trig (SubVI).vi"/>
 			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="../take_picture_pymba (SubVI).vi"/>
+			<Item Name="TL4000 Close.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Close.vi"/>
+			<Item Name="TL4000 Error Message.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Error Message.vi"/>
+			<Item Name="TL4000 Get Laser Diode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Current Limit.vi"/>
+			<Item Name="TL4000 Get Laser Diode Current Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Current Setpoint.vi"/>
+			<Item Name="TL4000 Get Laser Diode Optical Power Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Optical Power Limit.vi"/>
+			<Item Name="TL4000 Get Laser Diode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Polarity.vi"/>
+			<Item Name="TL4000 Get LD Output State.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get LD Output State.vi"/>
+			<Item Name="TL4000 Get Output Protection Voltage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Output Protection Voltage.vi"/>
+			<Item Name="TL4000 Get Output Switch-On Delay.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Output Switch-On Delay.vi"/>
+			<Item Name="TL4000 Get Photodiode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Current Limit.vi"/>
+			<Item Name="TL4000 Get Photodiode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Polarity.vi"/>
+			<Item Name="TL4000 Get Photodiode Range.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Range.vi"/>
+			<Item Name="TL4000 Get Photodiode Responsivity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Responsivity.vi"/>
+			<Item Name="TL4000 Get TEC Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get TEC Current Limit.vi"/>
+			<Item Name="TL4000 Get TEC Output State.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get TEC Output State.vi"/>
+			<Item Name="TL4000 Get Temperature Sensor Type.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Sensor Type.vi"/>
+			<Item Name="TL4000 Get Temperature Setpoint Limits.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Setpoint Limits.vi"/>
+			<Item Name="TL4000 Get Temperature Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Setpoint.vi"/>
+			<Item Name="TL4000 Identification Query.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Identification Query.vi"/>
+			<Item Name="TL4000 Initialize.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Initialize.vi"/>
+			<Item Name="TL4000 Measure Laser Diode Multiple Values.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure Laser Diode Multiple Values.vi"/>
+			<Item Name="TL4000 Measure TEC Current.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Current.vi"/>
+			<Item Name="TL4000 Measure TEC Power.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Power.vi"/>
+			<Item Name="TL4000 Measure TEC Voltage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Voltage.vi"/>
+			<Item Name="TL4000 Measure Temperature.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure Temperature.vi"/>
+			<Item Name="TL4000 Set Laser Diode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Current Limit.vi"/>
+			<Item Name="TL4000 Set Laser Diode Current Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Current Setpoint.vi"/>
+			<Item Name="TL4000 Set Laser Diode Operating Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Operating Mode.vi"/>
+			<Item Name="TL4000 Set Laser Diode Optical Power Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Optical Power Limit.vi"/>
+			<Item Name="TL4000 Set Laser Diode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Polarity.vi"/>
+			<Item Name="TL4000 Set LD-Enable Input Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set LD-Enable Input Mode.vi"/>
+			<Item Name="TL4000 Set Output Protection Voltage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Output Protection Voltage.vi"/>
+			<Item Name="TL4000 Set Output Switch-On Delay.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Output Switch-On Delay.vi"/>
+			<Item Name="TL4000 Set Photodiode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Current Limit.vi"/>
+			<Item Name="TL4000 Set Photodiode Input Terminals.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Input Terminals.vi"/>
+			<Item Name="TL4000 Set Photodiode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Polarity.vi"/>
+			<Item Name="TL4000 Set Photodiode Range.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Range.vi"/>
+			<Item Name="TL4000 Set Photodiode Responsivity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Responsivity.vi"/>
+			<Item Name="TL4000 Set TEC Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set TEC Current Limit.vi"/>
+			<Item Name="TL4000 Set TEC Operating Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set TEC Operating Mode.vi"/>
+			<Item Name="TL4000 Set Temperature Protection Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Protection Mode.vi"/>
+			<Item Name="TL4000 Set Temperature Sensor Offset.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Sensor Offset.vi"/>
+			<Item Name="TL4000 Set Temperature Sensor Type.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Sensor Type.vi"/>
+			<Item Name="TL4000 Set Temperature Setpoint Limits.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Setpoint Limits.vi"/>
+			<Item Name="TL4000 Set Temperature Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Setpoint.vi"/>
+			<Item Name="TL4000 Set Temperature Unit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Unit.vi"/>
+			<Item Name="TL4000 Set Thermistor Exponential Parameters.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Thermistor Exponential Parameters.vi"/>
+			<Item Name="TL4000 Set Thermistor Method.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Thermistor Method.vi"/>
+			<Item Name="TL4000 Switch LD Output.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch LD Output.vi"/>
+			<Item Name="TL4000 Switch Modulation.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch Modulation.vi"/>
+			<Item Name="TL4000 Switch Photodiode BIAS.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch Photodiode BIAS.vi"/>
+			<Item Name="TL4000 Switch QCW Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch QCW Mode.vi"/>
+			<Item Name="TL4000 Switch TEC Output.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch TEC Output.vi"/>
+			<Item Name="TL4000 VXIpnp Error Converter.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 VXIpnp Error Converter.vi"/>
+			<Item Name="TL4000_32.dll" Type="Document" URL="TL4000_32.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="z_Config_Dialog.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_Config_Dialog.vi"/>
+			<Item Name="z_ConnectToTL4000-Device.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_ConnectToTL4000-Device.vi"/>
+			<Item Name="z_EinKnopfDialog.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_EinKnopfDialog.vi"/>
+			<Item Name="z_GetSystemLanguage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_GetSystemLanguage.vi"/>
+			<Item Name="z_Select USB Device.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_Select USB Device.vi"/>
+			<Item Name="z_StateMachineTypeDef.ctl" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_StateMachineTypeDef.ctl"/>
+			<Item Name="z_StringGetThrough_.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_StringGetThrough_.vi"/>
+			<Item Name="z_ZweiKnöpfeDialog.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_ZweiKnöpfeDialog.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
