@@ -12,7 +12,7 @@ import bead_util as bu
 
 import time
 
-dirname = r'D:\data\20190514\bead1\test_with_rga\test5'
+dirname = r'Z:\data\20230306\bead2'
 live = False
 
 elec_ind = 3
@@ -48,7 +48,7 @@ if live:
 
         if mrf != old_mrf:
         
-            print mrf
+            print(mrf)
 
             df = bu.DataFile()
             df.load(mrf)
@@ -83,6 +83,8 @@ if live:
             plt.draw()
     
             old_mrf = mrf
+
+            np.savetxt( os.path.join(dirname, "current_corr.txt"), [corr] )
 
         time.sleep(ts)
 

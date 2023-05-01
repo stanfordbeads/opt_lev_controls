@@ -1,6 +1,8 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
 <Project Type="Project" LVVersion="22308000">
-	<Property Name="varPersistentID:{43931177-FEDD-4B8A-A493-36616CD191B1}" Type="Ref">/My Computer/daq_lib.lvlib/synth_settings</Property>
+	<Property Name="varPersistentID:{14137989-869C-4593-9375-A29C1E5B5206}" Type="Ref">/My Computer/daq_lib.lvlib/synth_settings</Property>
+	<Property Name="varPersistentID:{9CC7FC0A-0166-4824-9D71-0A407BEF1D33}" Type="Ref">/My Computer/daq_lib.lvlib/add_slow_fast</Property>
+	<Property Name="varPersistentID:{C7D1E7B1-151F-4605-AE73-7CF948F3BB22}" Type="Ref">/My Computer/daq_lib.lvlib/even_datafile</Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="server.app.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="server.control.propertiesEnabled" Type="Bool">true</Property>
@@ -11,13 +13,13 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
-		<Item Name="bead_dropper.vi" Type="VI" URL="../../misc_utils/bead_dropper.vi"/>
-		<Item Name="beads_DAQ.vi" Type="VI" URL="../beads_DAQ.vi"/>
-		<Item Name="daq_lib.lvlib" Type="Library" URL="../../daq_lib.lvlib"/>
-		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="../../picomotor/dual_picomotor_driver.vi"/>
-		<Item Name="IR Laser Diode Controller.vi" Type="VI" URL="../../LASER/IR Laser Diode Controller.vi"/>
-		<Item Name="Tabor 5064 Control.vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 Control.vi"/>
-		<Item Name="total_valve_control.vi" Type="VI" URL="../../valve_control/total_valve_control.vi"/>
+		<Item Name="bead_dropper.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/misc_utils/bead_dropper.vi"/>
+		<Item Name="beads_DAQ.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/beads_DAQ.vi"/>
+		<Item Name="daq_lib.lvlib" Type="Library" URL="/C/Users/beads/opt_lev_controls/labview/daq_lib.lvlib"/>
+		<Item Name="dual_picomotor_driver.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/picomotor/dual_picomotor_driver.vi"/>
+		<Item Name="IR Laser Diode Controller.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/IR Laser Diode Controller.vi"/>
+		<Item Name="Tabor 5064 Control.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 Control.vi"/>
+		<Item Name="total_valve_control.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/valve_control/total_valve_control.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="instr.lib" Type="Folder">
 				<Item Name="AbortMotion.vi" Type="VI" URL="/&lt;instrlib&gt;/Model 8742/Command VIs/AbortMotion.vi"/>
@@ -488,7 +490,6 @@
 				<Item Name="LVNumericRepresentation.ctl" Type="VI" URL="/&lt;vilib&gt;/numeric/LVNumericRepresentation.ctl"/>
 				<Item Name="LVRectTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRectTypeDef.ctl"/>
 				<Item Name="LVRowAndColumnTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVRowAndColumnTypeDef.ctl"/>
-				<Item Name="lvSimController.dll" Type="Document" URL="/&lt;vilib&gt;/rvi/Simulation/lvSimController.dll"/>
 				<Item Name="LVSWMR Type.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/file.llb/LVSWMR Type.ctl"/>
 				<Item Name="LVTypeElement.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/LVTypeElement.ctl"/>
 				<Item Name="LVTypeTable.ctl" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/LVTypeTable.ctl"/>
@@ -567,34 +568,34 @@
 				<Item Name="Write LV Compound Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Write LV Compound Attrs.vi"/>
 				<Item Name="Write LV Type Attrs.vi" Type="VI" URL="/&lt;vilib&gt;/UPVI/lvhdf5/datatype.llb/private/Write LV Type Attrs.vi"/>
 			</Item>
-			<Item Name="Agilent E364X Series Output Single Channel DC Volts.vi" Type="VI" URL="../../e364x/Agilent E364X Series/Examples/Agilent E364X Series Output Single Channel DC Volts.vi"/>
-			<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="../../e364x/Agilent E364X Series/Agilent E364X Series.lvlib"/>
-			<Item Name="arange (SubVI).vi" Type="VI" URL="../arange (SubVI).vi"/>
-			<Item Name="build_config_trig (SubVI).vi" Type="VI" URL="../build_config_trig (SubVI).vi"/>
-			<Item Name="check_folder (SubVI).vi" Type="VI" URL="../check_folder (SubVI).vi"/>
-			<Item Name="check_folder_no_prompt (SubVI).vi" Type="VI" URL="../check_folder_no_prompt (SubVI).vi"/>
-			<Item Name="check_if_should_flash (SubVI).vi" Type="VI" URL="../check_if_should_flash (SubVI).vi"/>
-			<Item Name="clean_up_data_tasks (SubVI).vi" Type="VI" URL="../clean_up_data_tasks (SubVI).vi"/>
-			<Item Name="clean_up_in_loop (SubVI).vi" Type="VI" URL="../clean_up_in_loop (SubVI).vi"/>
-			<Item Name="clean_up_instruments (SubVI).vi" Type="VI" URL="../clean_up_instruments (SubVI).vi"/>
-			<Item Name="CmdLib.dll" Type="Document" URL="../../../../../../Program Files (x86)/New Focus/New Focus Picomotor Application/Samples/LabVIEW/Model 8742/LabVIEW 2009/CmdLib.dll"/>
-			<Item Name="create_file_name (SubVI).vi" Type="VI" URL="../create_file_name (SubVI).vi"/>
-			<Item Name="create_process_list (SubVI).vi" Type="VI" URL="../create_process_list (SubVI).vi"/>
-			<Item Name="create_subarray (SubVI).vi" Type="VI" URL="../create_subarray (SubVI).vi"/>
-			<Item Name="display_environ (SubVI).vi" Type="VI" URL="../../valve_control/display_environ (SubVI).vi"/>
-			<Item Name="drive dual picomotor zigzag (SubVI).vi" Type="VI" URL="../../picomotor/drive dual picomotor zigzag (SubVI).vi"/>
-			<Item Name="encode_string (SubVI).vi" Type="VI" URL="../encode_string (SubVI).vi"/>
-			<Item Name="FPGA Timekeeper.lvlib" Type="Library" URL="../../fpga/FPGA Timekeeper 1.1b0/FPGA Timekeeper.lvlib"/>
-			<Item Name="get_pressure_gauge_readings (SubVI).vi" Type="VI" URL="../../valve_control/get_pressure_gauge_readings (SubVI).vi"/>
-			<Item Name="get_valve_state (SubVI).vi" Type="VI" URL="../../valve_control/get_valve_state (SubVI).vi"/>
-			<Item Name="HP 3325B - Set Amplitude (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Amplitude (SubVI).vi"/>
-			<Item Name="HP 3325B - Set Frequency (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Frequency (SubVI).vi"/>
-			<Item Name="HP 3325B - Set Offset (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Offset (SubVI).vi"/>
-			<Item Name="HP 3325B - Set Phase (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Phase (SubVI).vi"/>
-			<Item Name="HP 3325B - Set Signal Type (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Signal Type (SubVI).vi"/>
-			<Item Name="HP 3325B - Set Sweep (SubVI).vi" Type="VI" URL="../../HP 3325B/HP 3325B - Set Sweep (SubVI).vi"/>
-			<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="../../HP 3325B/HP 3325B Function Gen.vi"/>
-			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="../initialize_instruments (SubVI).vi"/>
+			<Item Name="Agilent E364X Series Output Single Channel DC Volts.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/e364x/Agilent E364X Series/Examples/Agilent E364X Series Output Single Channel DC Volts.vi"/>
+			<Item Name="Agilent E364X Series.lvlib" Type="Library" URL="/C/Users/beads/opt_lev_controls/labview/e364x/Agilent E364X Series/Agilent E364X Series.lvlib"/>
+			<Item Name="arange (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/arange (SubVI).vi"/>
+			<Item Name="build_config_trig (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/build_config_trig (SubVI).vi"/>
+			<Item Name="check_folder (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/check_folder (SubVI).vi"/>
+			<Item Name="check_folder_no_prompt (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/check_folder_no_prompt (SubVI).vi"/>
+			<Item Name="check_if_should_flash (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/check_if_should_flash (SubVI).vi"/>
+			<Item Name="clean_up_data_tasks (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/clean_up_data_tasks (SubVI).vi"/>
+			<Item Name="clean_up_in_loop (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/clean_up_in_loop (SubVI).vi"/>
+			<Item Name="clean_up_instruments (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/clean_up_instruments (SubVI).vi"/>
+			<Item Name="CmdLib.dll" Type="Document" URL="/C/Program Files (x86)/New Focus/New Focus Picomotor Application/Samples/LabVIEW/Model 8742/LabVIEW 2009/CmdLib.dll"/>
+			<Item Name="create_file_name (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/create_file_name (SubVI).vi"/>
+			<Item Name="create_process_list (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/create_process_list (SubVI).vi"/>
+			<Item Name="create_subarray (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/create_subarray (SubVI).vi"/>
+			<Item Name="display_environ (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/valve_control/display_environ (SubVI).vi"/>
+			<Item Name="drive dual picomotor zigzag (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/picomotor/drive dual picomotor zigzag (SubVI).vi"/>
+			<Item Name="encode_string (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/encode_string (SubVI).vi"/>
+			<Item Name="FPGA Timekeeper.lvlib" Type="Library" URL="/C/Users/beads/opt_lev_controls/labview/fpga/FPGA Timekeeper 1.1b0/FPGA Timekeeper.lvlib"/>
+			<Item Name="get_pressure_gauge_readings (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/valve_control/get_pressure_gauge_readings (SubVI).vi"/>
+			<Item Name="get_valve_state (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/valve_control/get_valve_state (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Amplitude (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B - Set Amplitude (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Frequency (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B - Set Frequency (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Offset (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B - Set Offset (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Phase (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B - Set Phase (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Signal Type (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B - Set Signal Type (SubVI).vi"/>
+			<Item Name="HP 3325B - Set Sweep (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B - Set Sweep (SubVI).vi"/>
+			<Item Name="HP 3325B Function Gen.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/HP 3325B/HP 3325B Function Gen.vi"/>
+			<Item Name="initialize_instruments (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/initialize_instruments (SubVI).vi"/>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -602,103 +603,103 @@
 			<Item Name="lvimptsl.dll" Type="Document" URL="lvimptsl.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="make_dc_array (SubVI).vi" Type="VI" URL="../make_dc_array (SubVI).vi"/>
-			<Item Name="make_electrode_array (SubVI).vi" Type="VI" URL="../make_electrode_array (SubVI).vi"/>
-			<Item Name="make_stage_array (SubVI).vi" Type="VI" URL="../make_stage_array (SubVI).vi"/>
+			<Item Name="make_dc_array (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/make_dc_array (SubVI).vi"/>
+			<Item Name="make_electrode_array (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/make_electrode_array (SubVI).vi"/>
+			<Item Name="make_stage_array (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/make_stage_array (SubVI).vi"/>
 			<Item Name="nilvaiu.dll" Type="Document" URL="nilvaiu.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="read_data (SubVI).vi" Type="VI" URL="../read_data (SubVI).vi"/>
-			<Item Name="read_environment (SubVI).vi" Type="VI" URL="../../read_environment (SubVI).vi"/>
-			<Item Name="replace_sub_array (SubVI).vi" Type="VI" URL="../replace_sub_array (SubVI).vi"/>
-			<Item Name="save_data (SubVI).vi" Type="VI" URL="../save_data (SubVI).vi"/>
-			<Item Name="send_fpga_config_if_not_imgrid (SubVI).vi" Type="VI" URL="../send_fpga_config_if_not_imgrid (SubVI).vi"/>
-			<Item Name="set_dc_supply (SubVI).vi" Type="VI" URL="../set_dc_supply (SubVI).vi"/>
-			<Item Name="set_electrodes (SubVI).vi" Type="VI" URL="../set_electrodes (SubVI).vi"/>
-			<Item Name="set_electrodes_init (SubVI).vi" Type="VI" URL="../set_electrodes_init (SubVI).vi"/>
-			<Item Name="set_gate_valve_state (SubVI).vi" Type="VI" URL="../../valve_control/set_gate_valve_state (SubVI).vi"/>
-			<Item Name="set_instruments (SubVI).vi" Type="VI" URL="../set_instruments (SubVI).vi"/>
-			<Item Name="set_stage (SubVI).vi" Type="VI" URL="../set_stage (SubVI).vi"/>
-			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="../set_stage_and_electrode_init (SubVI).vi"/>
-			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="../set_stage_init (SubVI).vi"/>
-			<Item Name="set_valve_dgitial.vi" Type="VI" URL="../../valve_control/set_valve_dgitial.vi"/>
-			<Item Name="setup_fpga_daq (SubVI).vi" Type="VI" URL="../setup_fpga_daq (SubVI).vi"/>
-			<Item Name="SR630_subvi.vi" Type="VI" URL="../../SR630_subvi.vi"/>
-			<Item Name="Tabor 5064 - Get Channel Status (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Get Channel Status (SubVI).vi"/>
-			<Item Name="Tabor 5064 - Set Channel Amplitude (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Amplitude (SubVI).vi"/>
-			<Item Name="Tabor 5064 - Set Channel Frequency (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Frequency (SubVI).vi"/>
-			<Item Name="Tabor 5064 - Set Channel Load (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Load (SubVI).vi"/>
-			<Item Name="Tabor 5064 - Set Channel Output State (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Channel Output State (SubVI).vi"/>
-			<Item Name="Tabor 5064 - Set Sine Phase (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Set Sine Phase (SubVI).vi"/>
-			<Item Name="Tabor 5064 - Setup Standard Waveforms (SubVI).vi" Type="VI" URL="../../Tabor 5064/Tabor 5064 - Setup Standard Waveforms (SubVI).vi"/>
-			<Item Name="take_data (SubVI).vi" Type="VI" URL="../take_data (SubVI).vi"/>
-			<Item Name="take_data_no-trig (SubVI).vi" Type="VI" URL="../take_data_no-trig (SubVI).vi"/>
-			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="../take_picture_pymba (SubVI).vi"/>
-			<Item Name="TL4000 Close.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Close.vi"/>
-			<Item Name="TL4000 Error Message.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Error Message.vi"/>
-			<Item Name="TL4000 Get Laser Diode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Current Limit.vi"/>
-			<Item Name="TL4000 Get Laser Diode Current Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Current Setpoint.vi"/>
-			<Item Name="TL4000 Get Laser Diode Optical Power Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Optical Power Limit.vi"/>
-			<Item Name="TL4000 Get Laser Diode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Polarity.vi"/>
-			<Item Name="TL4000 Get LD Output State.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get LD Output State.vi"/>
-			<Item Name="TL4000 Get Output Protection Voltage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Output Protection Voltage.vi"/>
-			<Item Name="TL4000 Get Output Switch-On Delay.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Output Switch-On Delay.vi"/>
-			<Item Name="TL4000 Get Photodiode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Current Limit.vi"/>
-			<Item Name="TL4000 Get Photodiode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Polarity.vi"/>
-			<Item Name="TL4000 Get Photodiode Range.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Range.vi"/>
-			<Item Name="TL4000 Get Photodiode Responsivity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Responsivity.vi"/>
-			<Item Name="TL4000 Get TEC Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get TEC Current Limit.vi"/>
-			<Item Name="TL4000 Get TEC Output State.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get TEC Output State.vi"/>
-			<Item Name="TL4000 Get Temperature Sensor Type.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Sensor Type.vi"/>
-			<Item Name="TL4000 Get Temperature Setpoint Limits.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Setpoint Limits.vi"/>
-			<Item Name="TL4000 Get Temperature Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Setpoint.vi"/>
-			<Item Name="TL4000 Identification Query.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Identification Query.vi"/>
-			<Item Name="TL4000 Initialize.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Initialize.vi"/>
-			<Item Name="TL4000 Measure Laser Diode Multiple Values.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure Laser Diode Multiple Values.vi"/>
-			<Item Name="TL4000 Measure TEC Current.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Current.vi"/>
-			<Item Name="TL4000 Measure TEC Power.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Power.vi"/>
-			<Item Name="TL4000 Measure TEC Voltage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Voltage.vi"/>
-			<Item Name="TL4000 Measure Temperature.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure Temperature.vi"/>
-			<Item Name="TL4000 Set Laser Diode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Current Limit.vi"/>
-			<Item Name="TL4000 Set Laser Diode Current Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Current Setpoint.vi"/>
-			<Item Name="TL4000 Set Laser Diode Operating Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Operating Mode.vi"/>
-			<Item Name="TL4000 Set Laser Diode Optical Power Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Optical Power Limit.vi"/>
-			<Item Name="TL4000 Set Laser Diode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Polarity.vi"/>
-			<Item Name="TL4000 Set LD-Enable Input Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set LD-Enable Input Mode.vi"/>
-			<Item Name="TL4000 Set Output Protection Voltage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Output Protection Voltage.vi"/>
-			<Item Name="TL4000 Set Output Switch-On Delay.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Output Switch-On Delay.vi"/>
-			<Item Name="TL4000 Set Photodiode Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Current Limit.vi"/>
-			<Item Name="TL4000 Set Photodiode Input Terminals.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Input Terminals.vi"/>
-			<Item Name="TL4000 Set Photodiode Polarity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Polarity.vi"/>
-			<Item Name="TL4000 Set Photodiode Range.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Range.vi"/>
-			<Item Name="TL4000 Set Photodiode Responsivity.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Responsivity.vi"/>
-			<Item Name="TL4000 Set TEC Current Limit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set TEC Current Limit.vi"/>
-			<Item Name="TL4000 Set TEC Operating Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set TEC Operating Mode.vi"/>
-			<Item Name="TL4000 Set Temperature Protection Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Protection Mode.vi"/>
-			<Item Name="TL4000 Set Temperature Sensor Offset.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Sensor Offset.vi"/>
-			<Item Name="TL4000 Set Temperature Sensor Type.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Sensor Type.vi"/>
-			<Item Name="TL4000 Set Temperature Setpoint Limits.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Setpoint Limits.vi"/>
-			<Item Name="TL4000 Set Temperature Setpoint.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Setpoint.vi"/>
-			<Item Name="TL4000 Set Temperature Unit.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Unit.vi"/>
-			<Item Name="TL4000 Set Thermistor Exponential Parameters.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Thermistor Exponential Parameters.vi"/>
-			<Item Name="TL4000 Set Thermistor Method.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Thermistor Method.vi"/>
-			<Item Name="TL4000 Switch LD Output.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch LD Output.vi"/>
-			<Item Name="TL4000 Switch Modulation.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch Modulation.vi"/>
-			<Item Name="TL4000 Switch Photodiode BIAS.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch Photodiode BIAS.vi"/>
-			<Item Name="TL4000 Switch QCW Mode.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch QCW Mode.vi"/>
-			<Item Name="TL4000 Switch TEC Output.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch TEC Output.vi"/>
-			<Item Name="TL4000 VXIpnp Error Converter.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 VXIpnp Error Converter.vi"/>
+			<Item Name="read_data (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/read_data (SubVI).vi"/>
+			<Item Name="read_environment (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/read_environment (SubVI).vi"/>
+			<Item Name="replace_sub_array (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/replace_sub_array (SubVI).vi"/>
+			<Item Name="save_data (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/save_data (SubVI).vi"/>
+			<Item Name="send_fpga_config_if_not_imgrid (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/send_fpga_config_if_not_imgrid (SubVI).vi"/>
+			<Item Name="set_dc_supply (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_dc_supply (SubVI).vi"/>
+			<Item Name="set_electrodes (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_electrodes (SubVI).vi"/>
+			<Item Name="set_electrodes_init (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_electrodes_init (SubVI).vi"/>
+			<Item Name="set_gate_valve_state (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/valve_control/set_gate_valve_state (SubVI).vi"/>
+			<Item Name="set_instruments (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_instruments (SubVI).vi"/>
+			<Item Name="set_stage (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_stage (SubVI).vi"/>
+			<Item Name="set_stage_and_electrode_init (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_stage_and_electrode_init (SubVI).vi"/>
+			<Item Name="set_stage_init (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/set_stage_init (SubVI).vi"/>
+			<Item Name="set_valve_dgitial.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/valve_control/set_valve_dgitial.vi"/>
+			<Item Name="setup_fpga_daq (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/setup_fpga_daq (SubVI).vi"/>
+			<Item Name="SR630_subvi.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/SR630_subvi.vi"/>
+			<Item Name="Tabor 5064 - Get Channel Status (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Get Channel Status (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Amplitude (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Set Channel Amplitude (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Frequency (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Set Channel Frequency (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Load (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Set Channel Load (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Channel Output State (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Set Channel Output State (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Set Sine Phase (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Set Sine Phase (SubVI).vi"/>
+			<Item Name="Tabor 5064 - Setup Standard Waveforms (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/Tabor 5064/Tabor 5064 - Setup Standard Waveforms (SubVI).vi"/>
+			<Item Name="take_data (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/take_data (SubVI).vi"/>
+			<Item Name="take_data_no-trig (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/take_data_no-trig (SubVI).vi"/>
+			<Item Name="take_picture_pymba (SubVI).vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/DAQ/take_picture_pymba (SubVI).vi"/>
+			<Item Name="TL4000 Close.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Close.vi"/>
+			<Item Name="TL4000 Error Message.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Error Message.vi"/>
+			<Item Name="TL4000 Get Laser Diode Current Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Current Limit.vi"/>
+			<Item Name="TL4000 Get Laser Diode Current Setpoint.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Current Setpoint.vi"/>
+			<Item Name="TL4000 Get Laser Diode Optical Power Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Optical Power Limit.vi"/>
+			<Item Name="TL4000 Get Laser Diode Polarity.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Laser Diode Polarity.vi"/>
+			<Item Name="TL4000 Get LD Output State.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get LD Output State.vi"/>
+			<Item Name="TL4000 Get Output Protection Voltage.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Output Protection Voltage.vi"/>
+			<Item Name="TL4000 Get Output Switch-On Delay.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Output Switch-On Delay.vi"/>
+			<Item Name="TL4000 Get Photodiode Current Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Current Limit.vi"/>
+			<Item Name="TL4000 Get Photodiode Polarity.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Polarity.vi"/>
+			<Item Name="TL4000 Get Photodiode Range.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Range.vi"/>
+			<Item Name="TL4000 Get Photodiode Responsivity.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Photodiode Responsivity.vi"/>
+			<Item Name="TL4000 Get TEC Current Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get TEC Current Limit.vi"/>
+			<Item Name="TL4000 Get TEC Output State.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get TEC Output State.vi"/>
+			<Item Name="TL4000 Get Temperature Sensor Type.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Sensor Type.vi"/>
+			<Item Name="TL4000 Get Temperature Setpoint Limits.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Setpoint Limits.vi"/>
+			<Item Name="TL4000 Get Temperature Setpoint.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Get Temperature Setpoint.vi"/>
+			<Item Name="TL4000 Identification Query.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Identification Query.vi"/>
+			<Item Name="TL4000 Initialize.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Initialize.vi"/>
+			<Item Name="TL4000 Measure Laser Diode Multiple Values.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure Laser Diode Multiple Values.vi"/>
+			<Item Name="TL4000 Measure TEC Current.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Current.vi"/>
+			<Item Name="TL4000 Measure TEC Power.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Power.vi"/>
+			<Item Name="TL4000 Measure TEC Voltage.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure TEC Voltage.vi"/>
+			<Item Name="TL4000 Measure Temperature.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Measure Temperature.vi"/>
+			<Item Name="TL4000 Set Laser Diode Current Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Current Limit.vi"/>
+			<Item Name="TL4000 Set Laser Diode Current Setpoint.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Current Setpoint.vi"/>
+			<Item Name="TL4000 Set Laser Diode Operating Mode.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Operating Mode.vi"/>
+			<Item Name="TL4000 Set Laser Diode Optical Power Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Optical Power Limit.vi"/>
+			<Item Name="TL4000 Set Laser Diode Polarity.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Laser Diode Polarity.vi"/>
+			<Item Name="TL4000 Set LD-Enable Input Mode.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set LD-Enable Input Mode.vi"/>
+			<Item Name="TL4000 Set Output Protection Voltage.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Output Protection Voltage.vi"/>
+			<Item Name="TL4000 Set Output Switch-On Delay.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Output Switch-On Delay.vi"/>
+			<Item Name="TL4000 Set Photodiode Current Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Current Limit.vi"/>
+			<Item Name="TL4000 Set Photodiode Input Terminals.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Input Terminals.vi"/>
+			<Item Name="TL4000 Set Photodiode Polarity.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Polarity.vi"/>
+			<Item Name="TL4000 Set Photodiode Range.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Range.vi"/>
+			<Item Name="TL4000 Set Photodiode Responsivity.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Photodiode Responsivity.vi"/>
+			<Item Name="TL4000 Set TEC Current Limit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set TEC Current Limit.vi"/>
+			<Item Name="TL4000 Set TEC Operating Mode.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set TEC Operating Mode.vi"/>
+			<Item Name="TL4000 Set Temperature Protection Mode.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Protection Mode.vi"/>
+			<Item Name="TL4000 Set Temperature Sensor Offset.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Sensor Offset.vi"/>
+			<Item Name="TL4000 Set Temperature Sensor Type.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Sensor Type.vi"/>
+			<Item Name="TL4000 Set Temperature Setpoint Limits.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Setpoint Limits.vi"/>
+			<Item Name="TL4000 Set Temperature Setpoint.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Setpoint.vi"/>
+			<Item Name="TL4000 Set Temperature Unit.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Temperature Unit.vi"/>
+			<Item Name="TL4000 Set Thermistor Exponential Parameters.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Thermistor Exponential Parameters.vi"/>
+			<Item Name="TL4000 Set Thermistor Method.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Set Thermistor Method.vi"/>
+			<Item Name="TL4000 Switch LD Output.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch LD Output.vi"/>
+			<Item Name="TL4000 Switch Modulation.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch Modulation.vi"/>
+			<Item Name="TL4000 Switch Photodiode BIAS.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch Photodiode BIAS.vi"/>
+			<Item Name="TL4000 Switch QCW Mode.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch QCW Mode.vi"/>
+			<Item Name="TL4000 Switch TEC Output.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 Switch TEC Output.vi"/>
+			<Item Name="TL4000 VXIpnp Error Converter.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/TL4000 VXIpnp Error Converter.vi"/>
 			<Item Name="TL4000_32.dll" Type="Document" URL="TL4000_32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="z_Config_Dialog.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_Config_Dialog.vi"/>
-			<Item Name="z_ConnectToTL4000-Device.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_ConnectToTL4000-Device.vi"/>
-			<Item Name="z_EinKnopfDialog.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_EinKnopfDialog.vi"/>
-			<Item Name="z_GetSystemLanguage.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_GetSystemLanguage.vi"/>
-			<Item Name="z_Select USB Device.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_Select USB Device.vi"/>
-			<Item Name="z_StateMachineTypeDef.ctl" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_StateMachineTypeDef.ctl"/>
-			<Item Name="z_StringGetThrough_.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_StringGetThrough_.vi"/>
-			<Item Name="z_ZweiKnöpfeDialog.vi" Type="VI" URL="../../LASER/TL4000 Series Example Folder/TL4000.llb/z_ZweiKnöpfeDialog.vi"/>
+			<Item Name="z_Config_Dialog.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_Config_Dialog.vi"/>
+			<Item Name="z_ConnectToTL4000-Device.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_ConnectToTL4000-Device.vi"/>
+			<Item Name="z_EinKnopfDialog.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_EinKnopfDialog.vi"/>
+			<Item Name="z_GetSystemLanguage.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_GetSystemLanguage.vi"/>
+			<Item Name="z_Select USB Device.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_Select USB Device.vi"/>
+			<Item Name="z_StateMachineTypeDef.ctl" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_StateMachineTypeDef.ctl"/>
+			<Item Name="z_StringGetThrough_.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_StringGetThrough_.vi"/>
+			<Item Name="z_ZweiKnöpfeDialog.vi" Type="VI" URL="/C/Users/beads/opt_lev_controls/labview/LASER/TL4000 Series Example Folder/TL4000.llb/z_ZweiKnöpfeDialog.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build"/>
 	</Item>
